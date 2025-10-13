@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>All Dividends history</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Dividend Pay Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>DividendPay ID</th> 
+             <td th:text="${dividendPayDetails.id}">1</td> 
+          </tr>
+          
+          <tr> 
+             <th>Stock</th>
+             <td th:text="${dividendPayDetails.stock}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Dividend Amount</th>
+             <td th:text="${dividendPayDetails.amount}">1</td>
+          </tr>
+
+          <tr> 
+             <th>Ex-Dividend Date</th>
+             <td th:text="${dividendPayDetails.exDividendDate}">1</td>
+          </tr>
+          
+          <tr> 
+             <th>Pay Date</th>
+             <td th:text="${dividendPayDetails.payDate}">1</td>
+          </tr>
+                              
+                      
+         
+    </table>
+            
+</body>
+</html>

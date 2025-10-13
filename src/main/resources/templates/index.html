@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>SpringDemo: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Finance Application <i>
+        <font color="blue"> 
+            <th:block th:text="${appName}"></th:block>  
+        </font> </i></h2>
+    
+    <p>
+    Server IP Address:     
+    <b> <th:block th:text="${myIP}"></th:block>  </b> 
+    </p>
+
+    <p>
+        Server Host Name:     
+        <b> <th:block th:text="${myHost}"></th:block>  </b> 
+    </p>
+        
+    <h3> There is a message for you here ....   
+        <a href="/greeting"> Click Me </a>
+    </h3>
+</body>
+</html>
