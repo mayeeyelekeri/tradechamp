@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>New Portfolio</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> New Dividend Portfolio</h2>
+    
+    <form method="POST" action="/stockportfolios">
+    <table border=1 class="sortable">
+        <tr>
+            <td>Account ID</td> 
+            <td><input type="text" name="accountId" size="80"/></td>
+        </tr>
+        <tr>
+            <td>Stock Symbol</td> 
+            <td><input type="text" name="stockSymbol" size="80"/></td>
+        </tr>
+             
+        <tr>
+            <td>Stock Name</td> 
+            <td><input type="text" name="stockName" size="80"/></td>
+        </tr>
+        
+        <tr>
+            <td>Product Type</td> 
+            <td>
+            <select name="productType" id="productType">
+                    <option value="Regular" selected>Regular</option>
+                    <option value="ETF">ETF</option>
+                    <option value="DividendEtf">DividendETF</option>   
+            </select>      
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Stock Quantity</td> 
+            <td><input type="text" name="stockQuantity" size="80"/></td>
+        </tr>
+        
+        <tr>
+            <td>Current Stock Price</td> 
+            <td><input type="text" name="currentStockPrice" size="80"/></td>
+        </tr>
+        
+        <tr>
+            <td>Average Stock Price</td> 
+            <td><input type="text" name="averageStockPrice" size="80"/></td>
+        </tr>
+
+        <tr>
+            <td>Current Market Cap</td> 
+            <td><input type="text" name="currentMarketCap" size="80"/></td>
+        </tr>
+                
+        <tr>
+            <td>Original Investment</td> 
+            <td><input type="text" name="originalInvestment" size="80"/></td>
+        </tr>
+                
+        <tr>
+            <td>Drip</td> 
+            <td>
+              <select name="drip" id="drip">
+                 <option value="Yes">Yes</option>
+                 <option value="No" selected>No</option>
+                 <option value="Partial">Partial</option>   
+              </select> 
+            </td>
+        </tr>
+                
+        <tr>
+            <td>Purchase Date</td> 
+            <td><input type="text" name="purchaseDate" size="80"/></td>
+        </tr>
+                
+        <tr>
+            <td>Dividend Frequency</td> 
+            <td>
+              <select name="dividendFrequency" id="dividendFrequency">
+                 <option value="Weekly" selected>Weekly</option>
+                 <option value="4-Week">4-Week</option>
+                 <option value="Monthly">Monthly</option> 
+                 <option value="Quarterly">Quarterly</option>
+              </select> 
+            </td>
+        </tr>
+            
+        <tr>
+            <td>Comments</td> 
+            <td><input type="text" name="comments" size="80"/></td>
+        </tr> 
+             
+        <tr/><tr/><tr/><tr/><tr/>
+        <tr>
+            <td colspan="3"><input name="Add New Portfolio" value="submit" type="submit"></input></td> 
+        </tr>
+        
+    </table>
+            
+</body>
+</html>

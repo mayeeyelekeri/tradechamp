@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>All Accounts history</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> All Accounts</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+          <th>Account ID</th>
+          <th>Name</th>
+          <th>Owner</th> 
+          <th>Account Type</th>
+          <th>Opened Date</th>
+      </tr>
+          <tr th:each="account : ${allAccounts}"> 
+            <td th:text="${account.accountId}">1</td> 
+            <td th:text="${account.accountName}">1</td>
+            <td th:text="${account.accountOwner}">1</td>
+            <td th:text="${account.accountType}">1</td>
+            <td th:text="${account.openedDate}">1</td>
+          </tr>
+    </table>
+           
+    <br> <a href="/" name="Home"> Home</a>    
+</body>
+</html>

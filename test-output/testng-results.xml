@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="26" passed="26" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-10-13T22:53:49 EDT" name="Suite" finished-at="2025-10-13T22:53:50 EDT" duration-ms="280">
+    <groups>
+    </groups>
+    <test started-at="2025-10-13T22:53:49 EDT" name="modelTests_DividendPay" finished-at="2025-10-13T22:53:50 EDT" duration-ms="151">
+      <class name="com.mine.tradechamp.model.DividendPayoutTest">
+        <test-method is-config="true" signature="beforeTest(java.lang.Long,java.lang.Long,java.lang.String,double,double,double,double,java.lang.String)[pri:0, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:49 EDT" name="beforeTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="dividendPayConstructorTest(java.lang.Long,java.lang.Long,java.lang.String,double,double,double,double,java.lang.String)[pri:0, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayConstructorTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayConstructorTest -->
+        <test-method signature="dividendPayoutAccoutIdTest(java.lang.Long)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutAccoutIdTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutAccoutIdTest -->
+        <test-method signature="dividendPayoutCurrentStockPriceTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutCurrentStockPriceTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutCurrentStockPriceTest -->
+        <test-method signature="dividendPayoutCurrentStockPriceTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutCurrentStockPriceTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutCurrentStockPriceTest -->
+        <test-method signature="dividendPayoutCurrentStockQuantityTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutCurrentStockQuantityTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutCurrentStockQuantityTest -->
+        <test-method signature="dividendPayoutCurrentYieldTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutCurrentYieldTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutCurrentYieldTest -->
+        <test-method signature="dividendPayoutIdTest(java.lang.Long)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutIdTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutIdTest -->
+        <test-method signature="dividendPayoutPayoutAmountTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutPayoutAmountTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutPayoutAmountTest -->
+        <test-method signature="dividendPayoutStockSymbolTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutStockSymbolTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutStockSymbolTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.mine.tradechamp.model.DividendPayoutTest@2f666ebb]" started-at="2025-10-13T22:53:50 EDT" name="afterTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.mine.tradechamp.model.DividendPayoutTest -->
+      <class name="com.mine.tradechamp.mapper.DividendPayoutMapperTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.mine.tradechamp.mapper.DividendPayoutMapperTest@19976a65]" started-at="2025-10-13T22:53:49 EDT" name="beforeTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="dtoToModelMapTest(java.lang.Long,java.lang.Long,java.lang.String,double,double,double,double,java.lang.String)[pri:1, instance:com.mine.tradechamp.mapper.DividendPayoutMapperTest@19976a65]" started-at="2025-10-13T22:53:50 EDT" name="dtoToModelMapTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dtoToModelMapTest -->
+        <test-method signature="modelToDtoMapTest(java.lang.Long,java.lang.Long,java.lang.String,double,double,double,double,java.lang.String)[pri:1, instance:com.mine.tradechamp.mapper.DividendPayoutMapperTest@19976a65]" started-at="2025-10-13T22:53:50 EDT" name="modelToDtoMapTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- modelToDtoMapTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.mine.tradechamp.mapper.DividendPayoutMapperTest@19976a65]" started-at="2025-10-13T22:53:50 EDT" name="afterTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.mine.tradechamp.mapper.DividendPayoutMapperTest -->
+      <class name="com.mine.tradechamp.model.DividendPayoutDtoTest">
+        <test-method is-config="true" signature="beforeTest(java.lang.Long,java.lang.Long,java.lang.String,double,double,double,double,java.lang.String)[pri:0, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="beforeTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="14" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="dividendPayoutDtoConstructorTest(java.lang.Long,java.lang.Long,java.lang.String,double,double,double,double,java.lang.String)[pri:0, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="dividendPayoutDtoConstructorTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="9" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoConstructorTest -->
+        <test-method signature="dividendPayoutDtoAccoutIdTest(java.lang.Long)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="dividendPayoutDtoAccoutIdTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoAccoutIdTest -->
+        <test-method signature="dividendPayoutDtoCurrentStockPriceTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="dividendPayoutDtoCurrentStockPriceTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[154.7]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoCurrentStockPriceTest -->
+        <test-method signature="dividendPayoutDtoCurrentStockPriceTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="dividendPayoutDtoCurrentStockPriceTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2025-11-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoCurrentStockPriceTest -->
+        <test-method signature="dividendPayoutDtoCurrentStockQuantityTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="dividendPayoutDtoCurrentStockQuantityTest" finished-at="2025-10-13T22:53:49 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[200.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoCurrentStockQuantityTest -->
+        <test-method signature="dividendPayoutDtoCurrentYieldTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:49 EDT" name="dividendPayoutDtoCurrentYieldTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoCurrentYieldTest -->
+        <test-method signature="dividendPayoutDtoIdTest(java.lang.Long)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutDtoIdTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoIdTest -->
+        <test-method signature="dividendPayoutDtoPayoutAmountTest(double)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutDtoPayoutAmountTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0.143]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoPayoutAmountTest -->
+        <test-method signature="dividendPayoutDtoStockSymbolTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayoutDtoStockSymbolTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[VOO]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayoutDtoStockSymbolTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.mine.tradechamp.model.DividendPayoutDtoTest@3cfdd820]" started-at="2025-10-13T22:53:50 EDT" name="afterTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.mine.tradechamp.model.DividendPayoutDtoTest -->
+    </test> <!-- modelTests_DividendPay -->
+    <test started-at="2025-10-13T22:53:50 EDT" name="modelTests_Account" finished-at="2025-10-13T22:53:50 EDT" duration-ms="25">
+      <class name="com.mine.tradechamp.model.AccountTest">
+        <test-method is-config="true" signature="beforeTest(java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="beforeTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[401K]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[MM]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Webull]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[IRA]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[2025-10-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="dividendPayConstructorTest(java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="dividendPayConstructorTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[401K]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[MM]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Webull]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[IRA]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[2025-10-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dividendPayConstructorTest -->
+        <test-method signature="accountBrokerTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="accountBrokerTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Webull]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountBrokerTest -->
+        <test-method signature="accountIdTest(java.lang.Long)[pri:1, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="accountIdTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountIdTest -->
+        <test-method signature="accountOpenedDateTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="accountOpenedDateTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2025-10-13]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountOpenedDateTest -->
+        <test-method signature="accountOwnerTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="accountOwnerTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[MM]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountOwnerTest -->
+        <test-method signature="accountTypeTest(java.lang.String)[pri:1, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="accountTypeTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[IRA]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountTypeTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.mine.tradechamp.model.AccountTest@1cd629b3]" started-at="2025-10-13T22:53:50 EDT" name="afterTest" finished-at="2025-10-13T22:53:50 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.mine.tradechamp.model.AccountTest -->
+    </test> <!-- modelTests_Account -->
+  </suite> <!-- Suite -->
+</testng-results>

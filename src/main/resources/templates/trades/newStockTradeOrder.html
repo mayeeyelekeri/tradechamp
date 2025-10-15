@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>New Stock Trade</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> New Stock Trade</h2>
+    
+    <form method="POST" action="/stocktradeorders">
+    <table border=1 class="sortable">
+        <tr>
+            <td>Account ID</td>             
+            <td>
+            <select id="myComboBox" name="accountId">
+                <option th:each="option : ${allAccounts}" th:value="${option}" th:text="${option}"></option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Stock Symbol</td> 
+            <td><input type="text" name="stockSymbol" size="80" required/></td>
+        </tr>
+   
+        <tr>
+            <td>Order Type</td> 
+            <td>
+            <select name="orderType" id="orderType">
+                    <option value="Buy" selected>Buy</option>
+                    <option value="Sell">Sell</option>
+            </select>      
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Stock Quantity</td> 
+            <td><input type="text" name="quantity" size="80" required/></td>
+        </tr>
+        
+        <tr>
+            <td>Stock Price</td> 
+            <td><input type="text" name="price" size="80" required/></td>
+        </tr>
+        
+        <tr>
+            <td>Execution Date</td> 
+            <td><input type="text" name="executionDate" size="80"/></td>
+        </tr>
+                
+        <tr>
+            <td>Comments</td> 
+            <td><input type="text" name="comments" size="80"/></td>
+        </tr>
+             
+        <tr/><tr/><tr/><tr/><tr/>
+        <tr>
+            <td colspan="3"><input name="Add New Stock Order" value="submit" type="submit"></input></td> 
+        </tr>
+                
+    </table>
+            
+</body>
+</html>

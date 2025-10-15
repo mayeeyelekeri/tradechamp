@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Suite" class="navigator-link">
+              <span class="suite-name border-passed">Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
+                    <span>C:\dev\workspace2\github\tradechamp\src\test\resources\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Suite" class="navigator-link ">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">26 methods,   26 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.AccountTest" class="method navigator-link" hash-for-method="accountBrokerTest(Webull)">accountBrokerTest(Webull)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.AccountTest" class="method navigator-link" hash-for-method="accountIdTest(1)">accountIdTest(1)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.AccountTest" class="method navigator-link" hash-for-method="accountOpenedDateTest(2025-10-13)">accountOpenedDateTest(2025-10-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.AccountTest" class="method navigator-link" hash-for-method="accountOwnerTest(MM)">accountOwnerTest(MM)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.AccountTest" class="method navigator-link" hash-for-method="accountTypeTest(IRA)">accountTypeTest(IRA)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">dividendPayConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.AccountTest" class="method navigator-link" hash-for-method="dividendPayConstructorTest(1, 401K, MM, Webull, IRA, 2025-10-13)">dividendPayConstructorTest(1, 401K, MM, Webull, IRA, 2025-10-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutAccoutIdTest(1)">dividendPayoutAccoutIdTest(1)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutCurrentStockPriceTest(2025-11-13)">dividendPayoutCurrentStockPriceTest(2025-11-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutCurrentStockPriceTest(154.7)">dividendPayoutCurrentStockPriceTest(154.7)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutCurrentStockQuantityTest(200.0)">dividendPayoutCurrentStockQuantityTest(200.0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutCurrentYieldTest(12.0)">dividendPayoutCurrentYieldTest(12.0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoAccoutIdTest(1)">dividendPayoutDtoAccoutIdTest(1)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">dividendPayoutDtoConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoCurrentStockPriceTest(154.7)">dividendPayoutDtoCurrentStockPriceTest(154.7)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoCurrentStockPriceTest(2025-11-13)">dividendPayoutDtoCurrentStockPriceTest(2025-11-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoCurrentStockQuantityTest(200.0)">dividendPayoutDtoCurrentStockQuantityTest(200.0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoCurrentYieldTest(12.0)">dividendPayoutDtoCurrentYieldTest(12.0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoIdTest(1)">dividendPayoutDtoIdTest(1)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoPayoutAmountTest(0.143)">dividendPayoutDtoPayoutAmountTest(0.143)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutDtoTest" class="method navigator-link" hash-for-method="dividendPayoutDtoStockSymbolTest(VOO)">dividendPayoutDtoStockSymbolTest(VOO)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutIdTest(1)">dividendPayoutIdTest(1)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutPayoutAmountTest(0.143)">dividendPayoutPayoutAmountTest(0.143)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.model.DividendPayoutTest" class="method navigator-link" hash-for-method="dividendPayoutStockSymbolTest(VOO)">dividendPayoutStockSymbolTest(VOO)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.mapper.DividendPayoutMapperTest" class="method navigator-link" hash-for-method="dtoToModelMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">dtoToModelMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.mine.tradechamp.mapper.DividendPayoutMapperTest" class="method navigator-link" hash-for-method="modelToDtoMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">modelToDtoMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.mine.tradechamp.mapper.DividendPayoutMapperTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="dtoToModelMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">
+                  </a> <!-- dtoToModelMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13) -->
+                  <span class="method-name">dtoToModelMapTest</span>
+                  <span class="parameters">(1,1,VOO,200.0,154.7,12.0,0.143,2025-11-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="modelToDtoMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">
+                  </a> <!-- modelToDtoMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13) -->
+                  <span class="method-name">modelToDtoMapTest</span>
+                  <span class="parameters">(1,1,VOO,200.0,154.7,12.0,0.143,2025-11-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.mine.tradechamp.model.DividendPayoutTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">
+                  </a> <!-- dividendPayConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13) -->
+                  <span class="method-name">dividendPayConstructorTest</span>
+                  <span class="parameters">(1,1,VOO,200.0,154.7,12.0,0.143,2025-11-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutAccoutIdTest(1)">
+                  </a> <!-- dividendPayoutAccoutIdTest(1) -->
+                  <span class="method-name">dividendPayoutAccoutIdTest</span>
+                  <span class="parameters">(1)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutCurrentStockPriceTest(2025-11-13)">
+                  </a> <!-- dividendPayoutCurrentStockPriceTest(2025-11-13) -->
+                  <span class="method-name">dividendPayoutCurrentStockPriceTest</span>
+                  <span class="parameters">(2025-11-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutCurrentStockPriceTest(154.7)">
+                  </a> <!-- dividendPayoutCurrentStockPriceTest(154.7) -->
+                  <span class="method-name">dividendPayoutCurrentStockPriceTest</span>
+                  <span class="parameters">(154.7)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutCurrentStockQuantityTest(200.0)">
+                  </a> <!-- dividendPayoutCurrentStockQuantityTest(200.0) -->
+                  <span class="method-name">dividendPayoutCurrentStockQuantityTest</span>
+                  <span class="parameters">(200.0)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutCurrentYieldTest(12.0)">
+                  </a> <!-- dividendPayoutCurrentYieldTest(12.0) -->
+                  <span class="method-name">dividendPayoutCurrentYieldTest</span>
+                  <span class="parameters">(12.0)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutIdTest(1)">
+                  </a> <!-- dividendPayoutIdTest(1) -->
+                  <span class="method-name">dividendPayoutIdTest</span>
+                  <span class="parameters">(1)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutPayoutAmountTest(0.143)">
+                  </a> <!-- dividendPayoutPayoutAmountTest(0.143) -->
+                  <span class="method-name">dividendPayoutPayoutAmountTest</span>
+                  <span class="parameters">(0.143)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutStockSymbolTest(VOO)">
+                  </a> <!-- dividendPayoutStockSymbolTest(VOO) -->
+                  <span class="method-name">dividendPayoutStockSymbolTest</span>
+                  <span class="parameters">(VOO)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.mine.tradechamp.model.AccountTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="accountBrokerTest(Webull)">
+                  </a> <!-- accountBrokerTest(Webull) -->
+                  <span class="method-name">accountBrokerTest</span>
+                  <span class="parameters">(Webull)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="accountIdTest(1)">
+                  </a> <!-- accountIdTest(1) -->
+                  <span class="method-name">accountIdTest</span>
+                  <span class="parameters">(1)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="accountOpenedDateTest(2025-10-13)">
+                  </a> <!-- accountOpenedDateTest(2025-10-13) -->
+                  <span class="method-name">accountOpenedDateTest</span>
+                  <span class="parameters">(2025-10-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="accountOwnerTest(MM)">
+                  </a> <!-- accountOwnerTest(MM) -->
+                  <span class="method-name">accountOwnerTest</span>
+                  <span class="parameters">(MM)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="accountTypeTest(IRA)">
+                  </a> <!-- accountTypeTest(IRA) -->
+                  <span class="method-name">accountTypeTest</span>
+                  <span class="parameters">(IRA)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayConstructorTest(1, 401K, MM, Webull, IRA, 2025-10-13)">
+                  </a> <!-- dividendPayConstructorTest(1, 401K, MM, Webull, IRA, 2025-10-13) -->
+                  <span class="method-name">dividendPayConstructorTest</span>
+                  <span class="parameters">(1,401K,MM,Webull,IRA,2025-10-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.mine.tradechamp.model.DividendPayoutDtoTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoAccoutIdTest(1)">
+                  </a> <!-- dividendPayoutDtoAccoutIdTest(1) -->
+                  <span class="method-name">dividendPayoutDtoAccoutIdTest</span>
+                  <span class="parameters">(1)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)">
+                  </a> <!-- dividendPayoutDtoConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13) -->
+                  <span class="method-name">dividendPayoutDtoConstructorTest</span>
+                  <span class="parameters">(1,1,VOO,200.0,154.7,12.0,0.143,2025-11-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoCurrentStockPriceTest(154.7)">
+                  </a> <!-- dividendPayoutDtoCurrentStockPriceTest(154.7) -->
+                  <span class="method-name">dividendPayoutDtoCurrentStockPriceTest</span>
+                  <span class="parameters">(154.7)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoCurrentStockPriceTest(2025-11-13)">
+                  </a> <!-- dividendPayoutDtoCurrentStockPriceTest(2025-11-13) -->
+                  <span class="method-name">dividendPayoutDtoCurrentStockPriceTest</span>
+                  <span class="parameters">(2025-11-13)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoCurrentStockQuantityTest(200.0)">
+                  </a> <!-- dividendPayoutDtoCurrentStockQuantityTest(200.0) -->
+                  <span class="method-name">dividendPayoutDtoCurrentStockQuantityTest</span>
+                  <span class="parameters">(200.0)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoCurrentYieldTest(12.0)">
+                  </a> <!-- dividendPayoutDtoCurrentYieldTest(12.0) -->
+                  <span class="method-name">dividendPayoutDtoCurrentYieldTest</span>
+                  <span class="parameters">(12.0)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoIdTest(1)">
+                  </a> <!-- dividendPayoutDtoIdTest(1) -->
+                  <span class="method-name">dividendPayoutDtoIdTest</span>
+                  <span class="parameters">(1)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoPayoutAmountTest(0.143)">
+                  </a> <!-- dividendPayoutDtoPayoutAmountTest(0.143) -->
+                  <span class="method-name">dividendPayoutDtoPayoutAmountTest</span>
+                  <span class="parameters">(0.143)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dividendPayoutDtoStockSymbolTest(VOO)">
+                  </a> <!-- dividendPayoutDtoStockSymbolTest(VOO) -->
+                  <span class="method-name">dividendPayoutDtoStockSymbolTest</span>
+                  <span class="parameters">(VOO)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+        </div> <!-- panel Suite -->
+        <div panel-name="test-xml-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\dev\workspace2\github\tradechamp\src\test\resources\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+  &lt;parameter name=&quot;currentStockPrice&quot; value=&quot;154.7&quot;/&gt;
+  &lt;parameter name=&quot;currentYield&quot; value=&quot;12&quot;/&gt;
+  &lt;parameter name=&quot;payoutAmount&quot; value=&quot;0.143&quot;/&gt;
+  &lt;parameter name=&quot;owner&quot; value=&quot;MM&quot;/&gt;
+  &lt;parameter name=&quot;currentStockQuantity&quot; value=&quot;200&quot;/&gt;
+  &lt;parameter name=&quot;exDividendDate&quot; value=&quot;2025-10-12&quot;/&gt;
+  &lt;parameter name=&quot;accountType&quot; value=&quot;IRA&quot;/&gt;
+  &lt;parameter name=&quot;broker&quot; value=&quot;Webull&quot;/&gt;
+  &lt;parameter name=&quot;payoutDate&quot; value=&quot;2025-11-13&quot;/&gt;
+  &lt;parameter name=&quot;declaredDate&quot; value=&quot;2025-10-11&quot;/&gt;
+  &lt;parameter name=&quot;openedDate&quot; value=&quot;2025-10-13&quot;/&gt;
+  &lt;parameter name=&quot;accountId&quot; value=&quot;1&quot;/&gt;
+  &lt;parameter name=&quot;stockSymbol&quot; value=&quot;VOO&quot;/&gt;
+  &lt;parameter name=&quot;name&quot; value=&quot;401K&quot;/&gt;
+  &lt;parameter name=&quot;id&quot; value=&quot;1&quot;/&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;modelTests_DividendPay&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.mine.tradechamp.model.DividendPayoutDtoTest&quot;/&gt;
+      &lt;class name=&quot;com.mine.tradechamp.model.DividendPayoutTest&quot;/&gt;
+      &lt;class name=&quot;com.mine.tradechamp.mapper.DividendPayoutMapperTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- modelTests_DividendPay --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;modelTests_Account&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.mine.tradechamp.model.AccountTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- modelTests_Account --&gt;
+&lt;/suite&gt; &lt;!-- Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">modelTests_DividendPay (3 classes)</span>
+              </li>
+              <li>
+                <span class="test-name">modelTests_Account (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Suite');
+function tableData_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(26);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'dividendPayoutDtoConstructorTest')
+data.setCell(0, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(0, 3, 9);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'dividendPayoutDtoCurrentStockPriceTest')
+data.setCell(1, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(1, 3, 3);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'dividendPayoutDtoStockSymbolTest')
+data.setCell(2, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(2, 3, 3);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'dividendPayConstructorTest')
+data.setCell(3, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(3, 3, 3);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'dividendPayoutDtoCurrentStockQuantityTest')
+data.setCell(4, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(4, 3, 2);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'dividendPayoutPayoutAmountTest')
+data.setCell(5, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(5, 3, 2);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'dividendPayoutStockSymbolTest')
+data.setCell(6, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(6, 3, 2);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'dividendPayoutDtoAccoutIdTest')
+data.setCell(7, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(7, 3, 2);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'dividendPayoutDtoCurrentStockPriceTest')
+data.setCell(8, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(8, 3, 2);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'dividendPayoutDtoCurrentYieldTest')
+data.setCell(9, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(9, 3, 2);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'dtoToModelMapTest')
+data.setCell(10, 2, 'com.mine.tradechamp.mapper.DividendPayoutMapperTest')
+data.setCell(10, 3, 2);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'dividendPayConstructorTest')
+data.setCell(11, 2, 'com.mine.tradechamp.model.AccountTest')
+data.setCell(11, 3, 2);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'accountOwnerTest')
+data.setCell(12, 2, 'com.mine.tradechamp.model.AccountTest')
+data.setCell(12, 3, 2);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'accountBrokerTest')
+data.setCell(13, 2, 'com.mine.tradechamp.model.AccountTest')
+data.setCell(13, 3, 2);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'dividendPayoutDtoPayoutAmountTest')
+data.setCell(14, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(14, 3, 1);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'dividendPayoutCurrentYieldTest')
+data.setCell(15, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(15, 3, 1);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'dividendPayoutCurrentStockPriceTest')
+data.setCell(16, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(16, 3, 1);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'dividendPayoutDtoIdTest')
+data.setCell(17, 2, 'com.mine.tradechamp.model.DividendPayoutDtoTest')
+data.setCell(17, 3, 1);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'dividendPayoutCurrentStockQuantityTest')
+data.setCell(18, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(18, 3, 1);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'dividendPayoutIdTest')
+data.setCell(19, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(19, 3, 1);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'dividendPayoutCurrentStockPriceTest')
+data.setCell(20, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(20, 3, 1);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'modelToDtoMapTest')
+data.setCell(21, 2, 'com.mine.tradechamp.mapper.DividendPayoutMapperTest')
+data.setCell(21, 3, 1);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'accountTypeTest')
+data.setCell(22, 2, 'com.mine.tradechamp.model.AccountTest')
+data.setCell(22, 3, 1);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'accountOpenedDateTest')
+data.setCell(23, 2, 'com.mine.tradechamp.model.AccountTest')
+data.setCell(23, 3, 1);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'accountIdTest')
+data.setCell(24, 2, 'com.mine.tradechamp.model.AccountTest')
+data.setCell(24, 3, 1);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'dividendPayoutAccoutIdTest')
+data.setCell(25, 2, 'com.mine.tradechamp.model.DividendPayoutTest')
+data.setCell(25, 3, 0);
+window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 49 ms</span>
+              <div id="times-div-Suite">
+              </div> <!-- times-div-Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.mapper.DividendPayoutMapperTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.DividendPayoutDtoTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</span>
+                <span class="method-start">14 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.DividendPayoutTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</span>
+                <span class="method-start">29 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.DividendPayoutDtoTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</span>
+                <span class="method-start">55 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoAccoutIdTest(1)</span>
+                <span class="method-start">68 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoCurrentStockPriceTest(154.7)</span>
+                <span class="method-start">73 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoCurrentStockPriceTest(2025-11-13)</span>
+                <span class="method-start">78 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoCurrentStockQuantityTest(200.0)</span>
+                <span class="method-start">82 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoCurrentYieldTest(12.0)</span>
+                <span class="method-start">85 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoIdTest(1)</span>
+                <span class="method-start">89 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoPayoutAmountTest(0.143)</span>
+                <span class="method-start">92 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutDtoStockSymbolTest(VOO)</span>
+                <span class="method-start">95 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.DividendPayoutTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">dividendPayConstructorTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</span>
+                <span class="method-start">101 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutAccoutIdTest(1)</span>
+                <span class="method-start">106 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutCurrentStockPriceTest(154.7)</span>
+                <span class="method-start">108 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutCurrentStockPriceTest(2025-11-13)</span>
+                <span class="method-start">111 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutCurrentStockQuantityTest(200.0)</span>
+                <span class="method-start">113 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutCurrentYieldTest(12.0)</span>
+                <span class="method-start">116 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutIdTest(1)</span>
+                <span class="method-start">118 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutPayoutAmountTest(0.143)</span>
+                <span class="method-start">122 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dividendPayoutStockSymbolTest(VOO)</span>
+                <span class="method-start">125 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.mapper.DividendPayoutMapperTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">dtoToModelMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</span>
+                <span class="method-start">128 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">modelToDtoMapTest(1, 1, VOO, 200.0, 154.7, 12.0, 0.143, 2025-11-13)</span>
+                <span class="method-start">132 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">135 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.DividendPayoutDtoTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">136 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.DividendPayoutTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">140 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.mine.tradechamp.model.AccountTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(1, 401K, MM, Webull, IRA, 2025-10-13)</span>
+                <span class="method-start">246 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">dividendPayConstructorTest(1, 401K, MM, Webull, IRA, 2025-10-13)</span>
+                <span class="method-start">251 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">accountBrokerTest(Webull)</span>
+                <span class="method-start">254 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">accountIdTest(1)</span>
+                <span class="method-start">258 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">accountOpenedDateTest(2025-10-13)</span>
+                <span class="method-start">261 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">accountOwnerTest(MM)</span>
+                <span class="method-start">263 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">accountTypeTest(IRA)</span>
+                <span class="method-start">267 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">269 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

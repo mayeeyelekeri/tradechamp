@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>StockTrade Order</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> StockTrade Order Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>Order ID</th> 
+             <td th:text="${stockTradeOrderDetails.id}">1</td> 
+          </tr>
+          
+          <tr>
+             <th>Account ID</th> 
+             <td th:text="${stockTradeOrderDetails.accountId}">1</td> 
+          </tr>
+                    
+          <tr> 
+             <th>Stock Symbol</th>
+             <td th:text="${stockTradeOrderDetails.stockSymbol}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Order Type</th>
+             <td th:text="${stockTradeOrderDetails.orderType}">1</td>
+          </tr>
+
+          <tr> 
+              <th>Quantity</th>
+              <td th:text="${stockTradeOrderDetails.quantity}">1</td>
+          </tr>
+                    
+          <tr> 
+             <th>Price</th>
+             <td th:text="${stockTradeOrderDetails.price}">1</td>
+          </tr>
+          
+          <tr> 
+             <th>Execution Date</th>
+             <td th:text="${stockTradeOrderDetails.executionDate}">1</td>
+          </tr>
+                              
+          <tr> 
+             <th>Comments</th>
+             <td th:text="${stockTradeOrderDetails.comments}">1</td>
+          </tr>                      
+         
+    </table>
+         
+    <br><br>
+      <a href="/stocktradeorders" name="All Stock Trades"> All Stock Trades</a> <br><br>
+         
+</body>
+</html>

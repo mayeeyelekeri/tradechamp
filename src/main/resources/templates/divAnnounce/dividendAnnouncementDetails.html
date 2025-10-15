@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Dividend Announcement Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Dividend Announcement Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>DividendPay ID</th> 
+             <td th:text="${dividendAnnouncementDetails.id}">1</td> 
+          </tr>
+          
+          <tr> 
+             <th>Stock Symbol</th>
+             <td th:text="${dividendAnnouncementDetails.stockSymbol}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Declared Amount</th>
+             <td th:text="${dividendAnnouncementDetails.declaredAmount}">1</td>
+          </tr>
+
+          <tr> 
+              <th>Declared Date</th>
+              <td th:text="${dividendAnnouncementDetails.declaredDate}">1</td>
+          </tr>
+                    
+          <tr> 
+             <th>Ex-Dividend Date</th>
+             <td th:text="${dividendAnnouncementDetails.exDividendDate}">1</td>
+          </tr>
+          
+          <tr> 
+             <th>Pay Date</th>
+             <td th:text="${dividendAnnouncementDetails.payDate}">1</td>
+          </tr>  
+            
+          <tr> 
+             <th>Dividend Frequency</th>
+             <td th:text="${dividendAnnouncementDetails.dividendFrequency}">1</td>
+          </tr>           
+    </table>
+    <br><br>
+    <a href="/dividendannouncements" name="All Dividend Announcements"> All Dividends</a> <br><br>
+        
+</body>
+</html>

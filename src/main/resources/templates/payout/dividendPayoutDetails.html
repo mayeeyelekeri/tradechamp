@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Dividend Payout Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Dividend Payout Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>DividendPay ID</th> 
+             <td th:text="${dividendPayoutDetails.id}">1</td> 
+          </tr>
+          
+          <tr>
+             <th>Account ID</th> 
+             <td th:text="${dividendPayoutDetails.accountId}">1</td> 
+          </tr>
+                    
+          <tr> 
+             <th>Stock Symbol</th>
+             <td th:text="${dividendPayoutDetails.stockSymbol}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Current Stock Quantity</th>
+             <td th:text="${dividendPayoutDetails.currentStockQuantity}">1</td>
+          </tr>
+
+          <tr> 
+              <th>Current Stock Price</th>
+              <td th:text="${dividendPayoutDetails.currentStockPrice}">1</td>
+          </tr>
+                    
+          <tr> 
+             <th>Current Yield</th>
+             <td th:text="${dividendPayoutDetails.currentYield}">1</td>
+          </tr>
+          
+          <tr> 
+             <th>Payout Amount</th>
+             <td th:text="${dividendPayoutDetails.payoutAmount}">1</td>
+          </tr>
+              
+          <tr> 
+             <th>Payout Date</th>
+             <td th:text="${dividendPayoutDetails.payoutDate}">1</td>
+          </tr> 
+          
+          <tr> 
+             <th>Dividend Frequency</th>
+             <td th:text="${dividendPayoutDetails.dividendFrequency}">1</td>
+          </tr>                    
+    </table>
+    <br><br>
+    <a href="/dividendpayouts" name="All Dividend Payouts"> All Dividend Payouts</a> <br><br>
+        
+</body>
+</html>

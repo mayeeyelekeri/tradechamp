@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Stock Portfolio Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Stock Portfolio Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>Account ID</th> 
+             <td th:text="${stockPortfolioDetails.accountId}">1</td> 
+          </tr>
+                 
+          <tr> 
+             <th>Stock Symbol</th>
+             <td th:text="${stockPortfolioDetails.stockSymbol}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Stock Name</th>
+             <td th:text="${stockPortfolioDetails.stockName}">1</td>
+          </tr>
+
+          <tr> 
+              <th>Stock Quantity</th>
+              <td th:text="${stockPortfolioDetails.stockQuantity}">1</td>
+          </tr>
+                    
+          <tr> 
+             <th>Current Stock Price</th>
+             <td th:text="${stockPortfolioDetails.currentStockPrice}">1</td>
+          </tr>
+          
+          <tr> 
+             <th>Average Stock Price</th>
+             <td th:text="${stockPortfolioDetails.averageStockPrice}">1</td>
+          </tr>    
+
+          <tr> 
+             <th>Current Market Cap</th>
+             <td th:text="${stockPortfolioDetails.currentMarketCap}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Original Investment</th>
+             <td th:text="${stockPortfolioDetails.originalInvestment}">1</td>
+          </tr>
+
+          <tr> 
+              <th>Drip</th>
+              <td th:text="${stockPortfolioDetails.drip}">1</td>
+          </tr>
+                    
+          <tr> 
+             <th>Purchase Date</th>
+             <td th:text="${stockPortfolioDetails.purchaseDate}">1</td>
+          </tr>
+
+          <tr> 
+             <th>Dividend Frequency</th>
+             <td th:text="${stockPortfolioDetails.dividendFrequency}">1</td>
+          </tr>    
+          
+          <tr> 
+             <th>Comments</th>
+             <td th:text="${stockPortfolioDetails.comments}">1</td>
+          </tr>    
+                
+    </table>
+    <br><br>
+    <a href="/stockportfolios" name="All Stock Portfolios"> All Stock Portfolios</a> <br><br>
+        
+</body>
+</html>

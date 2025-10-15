@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>All Dividends Payout history</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> All Dividend Payout history</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+          <th>DividendPay ID</th>
+          <th>Account ID</th>
+          <th>Stock Symbol</th>
+          <th>Current Stock Quantity</th> 
+          <th>Current Stock Price</th>
+          <th>Current Yield</th>
+          <th>Payout Amount</th>
+          <th>Payout Date</th>
+          <th>Dividend Frequency</th>
+      </tr>
+          <tr th:each="dividend : ${allDividends}"> 
+            <td th:text="${dividend.id}">1</td> 
+            <td th:text="${dividend.accountId}">1</td> 
+            <td th:text="${dividend.stockSymbol}">1</td>
+            <td th:text="${dividend.currentStockQuantity}">1</td>
+            <td th:text="${dividend.currentStockPrice}">1</td>
+            <td th:text="${dividend.currentYield}">1</td>
+            <td th:text="${dividend.payoutAmount}">1</td>
+            <td th:text="${dividend.payoutDate}">1</td>
+            <td th:text="${dividend.dividendFrequency}">1</td>
+          </tr>
+    </table>
+    
+    <br> <a href="/" name="Home"> Home</a>        
+</body>
+</html>
