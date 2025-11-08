@@ -1,5 +1,9 @@
 version: 0.2
 
+env: 
+  parameter-store:
+      image_repo: /dev/ecs/tradechamp/ecr_repository
+      
 phases:
 
   install:
@@ -17,17 +21,17 @@ phases:
      commands:
        - echo bucket name is $BUCKET_NAME
        - ls -lrt target 
-       - cp target/tradechamp-0.0.1-SNAPSHOT.jar codedeploy 
+       - cp target/tradechamp-1.0.0.jar codedeploy 
        - ls -lrt codedeploy
             
        # zipping is causing the issue during codedeploy 
-       # - cd codedeploy && zip -r ../springdemo2.zip * 
+       # - cd codedeploy && zip -r ../tradechamp.zip * 
        # 
        - pwd 
        - ls -lrt
             
        # Create an image and push to ECR 
-       - echo image repo $springdemo_image_repo
+       - echo image repo $image_repo
        - accountID=`aws sts get-caller-identity --query Account --output text`
        - echo accountID = $accountID
        - echo aws region = $AWS_REGION 
@@ -39,8 +43,8 @@ phases:
        - commitId=`git log --format="%H" -n 1`
             
        - echo commitID is $commitId
-       - docker build -t $springdemo_image_repo:$commitId .
-       - docker push $springdemo_image_repo:$commitId
+       - docker build -t $image_repo:$commitId .
+       - docker push $image_repo:$commitId
        - docker images 
             
      artifacts:

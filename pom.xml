@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.mine</groupId>
 	<artifactId>tradechamp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>randd</name>
 	<description>Manage trades, dividends and portfolio</description>
 	<url/>
