@@ -1,0 +1,38 @@
+version: 0.2
+
+phases:
+
+  install:
+
+    commands:
+      - echo Pre-Build started on `date`
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean package -Dmaven.test.skip=true
+      - echo Build Ended on `date`
+
+  post_build:
+    commands:
+      - echo bucket name is $BUCKET_NAME
+      - ls -lrt target 
+      - cp target/tradechamp-0.0.1-SNAPSHOT.jar codedeploy 
+      - ls -lrt codedeploy
+      - pwd 
+      - ls -lrt
+   
+   # For pipeline deployment, build artifact doesn't need to be zipped   
+      - cp -r codedeploy/* . 
+       
+artifacts:
+  files:
+    - tradechamp-0.0.1-SNAPSHOT.jar
+    - appspec.yml 
+    - Dockerfile 
+    - scripts/start_server.sh 
+    - scripts/stop_server.sh
+    - scripts/cleanup.sh
+    - scripts/install_dependencies.sh
+  
+  discard-paths: no

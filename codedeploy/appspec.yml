@@ -1,0 +1,31 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: <TASK_DEFINITION>
+
+        LoadBalancerInfo:
+          ContainerName: "TradeChamp"
+          ContainerPort: 80
+        PlatformVersion: "LATEST"
+#
+Hooks:
+  - BeforeInstall: "BeforeInstall"
+  - AfterInstall: "AfterInstall"
+  - AfterAllowTestTraffic: "AfterAllowTestTraffic"
+  - BeforeAllowTraffic: "BeforeAllowTraffic"
+  - AfterAllowTraffic: "AfterAllowTraffic"
+  
+  
+# ECS hook events in sequence 
+# Reference: https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-server
+
+# 1. BeforeInstall 
+# 2. Install
+# 3. AfterInstall 
+# 4. AllowTestTraffic 
+# 5. AfterAllowTestTraffic
+# 6. BeforeAllowTraffic
+# 7. AllowTraffic
+# 8. AfterAllowTraffic
