@@ -1,6 +1,9 @@
 package com.mine.tradechamp.dto;
 
 import java.time.LocalDate;
+
+import com.mine.tradechamp.model.Stock;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -76,7 +79,7 @@ public class DividendAnnouncementDto {
 	}
 	@Override
 	public String toString() {
-		return "DividendAnnouncementDto [id=" + id + ", stockSymbol=" + stockSymbol + ", declaredAmount="
+		return "DividendAnnouncementDto [id=" + id + ", stock=" + stockSymbol + ", declaredAmount="
 				+ declaredAmount + ", declaredDate=" + declaredDate + ", exDividendDate=" + exDividendDate
 				+ ", payDate=" + payDate + ", dividendFrequency=" + dividendFrequency + "]";
 	} 	

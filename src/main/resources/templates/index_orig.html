@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+        
+    <head> 
+        <title>TradeChamp application</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="css/basic.css"> 
+    </head>
+    
+ <body>
+<bb>
+    <h2> TradeChamp application <i>
+        <font color="blue"> 
+            <th:block th:text="${appName}"></th:block>  
+        </font> </i></h2>
+    
+    <p>
+       <b> <a href="/dividendannouncements" name="All Dividend Announcements"> All Dividend Announcements</a> <br><br> </b> 
+    </p>
+
+    <p>
+       <b> <a href="/stockportfolios" name="All Stock Portfolios"> All Stock Portfolios</a> <br><br> </p> </b>
+    </p>
+     
+    <p>
+       <b> <a href="/accounts" name="All Accounts"> All Accounts</a> <br><br> </p> </b>
+    </p>
+        
+    <p>
+       <b> <a href="/stocktradeorders" name="All Orders"> All Orders</a> <br><br> </p> </b>
+    </p>
+      
+    <p>
+       <b> <a href="/dividendpayouts" name="All Dividend Payouts"> All Dividend Payouts</a> <br><br> </b> 
+    </p>     
+    
+    <h3> There is a message for you here ....   
+        <a href="/greeting"> Click Me </a>
+    </h3>
+</body>
+</html>

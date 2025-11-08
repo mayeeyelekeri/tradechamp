@@ -25,7 +25,7 @@ public interface StockPortfolioService {
 	StockPortfolioDto findByAccountIdAndStockSymbol(Long accountId, String stockSymbol); 
 	
 	// get a list of record by stockSymbol 
-	List<StockPortfolioDto> getStockPortfolioByStockSymbol(String stockSymbol); 
+	List<StockPortfolioDto> getStockPortfoliosByStockSymbol(String stockSymbol); 
 		
 	
 }

@@ -1,4 +1,4 @@
-package com.mine.tradechamp.controller;
+package com.mine.tradechamp.controller.web;
 
 import java.util.List;
 
@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.mine.tradechamp.dto.StockPortfolioDto;
-
+import com.mine.tradechamp.utils.MyUtils;
 
 import lombok.AllArgsConstructor;
 
@@ -31,12 +32,6 @@ import lombok.AllArgsConstructor;
 @Controller 
 @RequestMapping("/stockportfolios")
 public class StockPortfolioControllerWeb {
-
-	@Value("${app.baseUrl}")
-	String baseUrl;
-	
-	@Value("${server.port}")
-	String port;
 	
 	private Logger logger = LoggerFactory.getLogger(StockPortfolioControllerWeb.class);
 	
@@ -45,20 +40,21 @@ public class StockPortfolioControllerWeb {
 	//public DividendPayControllerWeb() {} 
 	
 	// this is something odd, not sure why we need it
-	public StockPortfolioControllerWeb(Environment env) { 
+	public void buildRestClient() { 
 		
 		// "baseUrl" is not getting passed inside the constructor
 		
-		System.out.println("---- inside const, baseurl = " + env.getProperty("app.baseUrl"));
+		//System.out.println("---- inside const, baseurl = " + env.getProperty("app.baseUrl"));
 		this.restClient = RestClient.builder()
-				.baseUrl(env.getProperty("app.baseUrl") + "/api/stockportfolios")
+				.baseUrl(getBaseUrl() + "/api/stockportfolios")
 				.build(); 
 	}  
 	
 	@GetMapping()
 	public ModelAndView getAllStockPorfolios() {
 		
-		String apiUrl = baseUrl + "/api/stockportfolios"; 
+		String apiUrl = getBaseUrl() + "/api/stockportfolios"; 
+		buildRestClient(); 
 		
 		logger.info("url : "+ apiUrl);
 		
@@ -80,8 +76,8 @@ public class StockPortfolioControllerWeb {
 	@GetMapping("{id}")
 	public ModelAndView getStockPortfolioById(@PathVariable("id") Long id) {
 		
-		logger.info("baseurl " + baseUrl); 
-		String apiUrl = baseUrl + "/api/stockportfolios/" + id; 
+		logger.info("baseurl " + getBaseUrl()); 
+		String apiUrl = getBaseUrl() + "/api/stockportfolios/" + id; 
 		logger.info("url to call " + apiUrl);
 		
 		StockPortfolioDto stock = restClient.get()
@@ -112,7 +108,7 @@ public class StockPortfolioControllerWeb {
 	@PostMapping
     public @ResponseBody ModelAndView addStockPortfolio(@ModelAttribute StockPortfolioDto div) {
 		logger.info("inside StockPortfolioControllerWeb().addStockPortfolio(), stock is "+div);
-		String apiUrl = baseUrl + "/api/stockportfolios";  
+		String apiUrl = getBaseUrl() + "/api/stockportfolios";  
 		logger.info("apiUrl:" + apiUrl); 
 		
 		ResponseEntity<StockPortfolioDto> responseObj = restClient.post()
@@ -141,4 +137,13 @@ public class StockPortfolioControllerWeb {
         
         return mv; 
 	}
+	
+	// get application base URL 
+	public String getBaseUrl() {
+	    String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
+	            .build()
+	            .toUriString();
+	    return baseUrl;
+	}
+	
 }

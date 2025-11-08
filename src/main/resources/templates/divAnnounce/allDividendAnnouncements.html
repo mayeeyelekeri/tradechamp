@@ -2,12 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
     <title>All Dividends history</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/basic.css">
+    <link th:href="@{/styles/navigationMenu.css}" rel="stylesheet" />
+    <link th:href="@{/styles/tableDisplay.css}" rel="stylesheet" />
+    <link th:href="@{/styles/verticalBar.css}" rel="stylesheet" />
 </head>
 <body>
-    <h2> All Dividend Announcement history</h2>
     
+    <div style="padding-left:60px">
+        <h2> All Dividend Announcement history</h2>
+    </div>
+    
+    <div style="padding-left:60px">
+        <input type="button" onclick="location.href='/dividendannouncements/add';" value="Add New Dividend" />
+    </div> 
+        
+    <div style="padding-left:60px">
+        
     <table border=1 class="sortable">
           <tr>
           <th>DividendPay ID</th>
@@ -29,8 +39,6 @@
           </tr>
     </table>
     
-    <br> <a href="/" name="Home"> Home</a>     
-    
-    <br> <a href="/dividendannouncements/add" name="CreateNew"> Create New</a>    
+    </div>  
 </body>
 </html>

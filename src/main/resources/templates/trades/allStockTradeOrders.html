@@ -2,34 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
     <title>All Stock Trade Orders history</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/basic.css">
+    <link th:href="@{/styles/navigationMenu.css}" rel="stylesheet" />
+    <link th:href="@{/styles/tableDisplay.css}" rel="stylesheet" />
+    <link th:href="@{/styles/verticalBar.css}" rel="stylesheet" />
 </head>
 <body>
-    <h2> All Stock Trade Orders history</h2>
     
-    <table border=1 class="sortable">
-          <tr>
-          <th>Account ID</th>
-          <th>Stock Symbol</th>
-          <th>Order Type</th> 
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Execution Date</th>
-          <th>Comments</th>
-      </tr>
-          <tr th:each="order : ${allStockTradeOrders}"> 
-            <td th:text="${order.accountId}">1</td> 
-            <td th:text="${order.stockSymbol}">1</td>
-            <td th:text="${order.orderType}">1</td>
-            <td th:text="${order.quantity}">1</td>
-            <td th:text="${order.price}">1</td>
-            <td th:text="${order.executionDate}">1</td>
-            <td th:text="${order.comments}">1</td>
+    <div style="padding-left:60px">
+        <h2> All Stock Trade Orders history </h2>
+    </div>
+    <div style="padding-left:60px">
+        <input type="button" onclick="location.href='/stocktradeorders/add';" value="Add New Trade" />
+    </div> 
+        
+    <div style="padding-left:60px">
+        
+        <table border=1 class="sortable">
+              <tr>
+              <th>Account ID</th>
+              <th>Stock Symbol</th>
+              <th>Order Type</th> 
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Execution Date</th>
+              <th>Comments</th>
           </tr>
-    </table>
-           
-    <br> <a href="/" name="Home"> Home</a>    
-    <br> <a href="/stocktradeorders/add" name="AddNewStockOrder"> AddNewStockOrder</a>  
-</body>
+              <tr th:each="order : ${allStockTradeOrders}"> 
+                <td th:text="${order.accountId}">1</td> 
+                <td th:text="${order.stockSymbol}">1</td>
+                <td th:text="${order.orderType}">1</td>
+                <td th:text="${order.quantity}">1</td>
+                <td th:text="${order.price}">1</td>
+                <td th:text="${order.executionDate}">1</td>
+                <td th:text="${order.comments}">1</td>
+              </tr>
+        </table>
+         
+    </div>
+</div>
 </html>

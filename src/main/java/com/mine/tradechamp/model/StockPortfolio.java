@@ -4,9 +4,13 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,44 +27,31 @@ import lombok.Setter;
 public class StockPortfolio {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) //this make the ID autoincrement
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // this make the ID auto increment
 	Long id; 
+	 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ACCOUNT", referencedColumnName = "ID")
+	Account account;
 	
-	@Column 
-	Long accountId;
-	
-	@Column 
-	String stockSymbol;
-	
-	@Column 
-	String stockName;
-	
-	@Column 
-	String productType; // Regular/ETF/DividendETF
-		
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
+	Stock stock;
+
 	@Column
 	double stockQuantity;
-	
-	@Column
-	double currentStockPrice;
 	
 	@Column
 	double averageStockPrice;
 	
 	@Column
-	double currentMarketCap;
-	
-	@Column
 	double originalInvestment;
 	
 	@Column
-	String drip; //yes/no/partial
+	String drip; // yes/no/partial
 	
 	@Column
 	LocalDate purchaseDate; 
-
-	@Column
-	String dividendFrequency; 
 		
 	@Column
 	String comments;
@@ -68,40 +59,22 @@ public class StockPortfolio {
 	@Column
 	double totalDividendAmount; 
 	
-	@Column 
-	double plCurrent; 
-	
-	@Column
-	double plWithDividend; 
-	
-	@Column 
-	double currentYield; 
-	
 	public StockPortfolio() {}
 
-	public StockPortfolio(Long id, Long accountId, String stockSymbol, String stockName, String productType,
-			double stockQuantity, double currentStockPrice, double averageStockPrice, double currentMarketCap,
-			double originalInvestment, String drip, LocalDate purchaseDate, String dividendFrequency, String comments,
-			double totalDividendAmount, double plCurrent, double plWithDividend, double currentYield) {
+	public StockPortfolio(Long id, Account account, Stock stock, double stockQuantity, double averageStockPrice,
+			double originalInvestment, String drip, LocalDate purchaseDate, String comments,
+			double totalDividendAmount) {
 		super();
 		this.id = id;
-		this.accountId = accountId;
-		this.stockSymbol = stockSymbol;
-		this.stockName = stockName;
-		this.productType = productType;
+		this.account = account;
+		this.stock = stock;
 		this.stockQuantity = stockQuantity;
-		this.currentStockPrice = currentStockPrice;
 		this.averageStockPrice = averageStockPrice;
-		this.currentMarketCap = currentMarketCap;
 		this.originalInvestment = originalInvestment;
 		this.drip = drip;
 		this.purchaseDate = purchaseDate;
-		this.dividendFrequency = dividendFrequency;
 		this.comments = comments;
 		this.totalDividendAmount = totalDividendAmount;
-		this.plCurrent = plCurrent;
-		this.plWithDividend = plWithDividend;
-		this.currentYield = currentYield;
 	}
 
 	public Long getId() {
@@ -112,36 +85,20 @@ public class StockPortfolio {
 		this.id = id;
 	}
 
-	public Long getAccountId() {
-		return accountId;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setAccountId(Long accountId) {
-		this.accountId = accountId;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
-	public String getStockSymbol() {
-		return stockSymbol;
+	public Stock getStock() {
+		return stock;
 	}
 
-	public void setStockSymbol(String stockSymbol) {
-		this.stockSymbol = stockSymbol;
-	}
-
-	public String getStockName() {
-		return stockName;
-	}
-
-	public void setStockName(String stockName) {
-		this.stockName = stockName;
-	}
-
-	public String getProductType() {
-		return productType;
-	}
-
-	public void setProductType(String productType) {
-		this.productType = productType;
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}
 
 	public double getStockQuantity() {
@@ -152,28 +109,12 @@ public class StockPortfolio {
 		this.stockQuantity = stockQuantity;
 	}
 
-	public double getCurrentStockPrice() {
-		return currentStockPrice;
-	}
-
-	public void setCurrentStockPrice(double currentStockPrice) {
-		this.currentStockPrice = currentStockPrice;
-	}
-
 	public double getAverageStockPrice() {
 		return averageStockPrice;
 	}
 
 	public void setAverageStockPrice(double averageStockPrice) {
 		this.averageStockPrice = averageStockPrice;
-	}
-
-	public double getCurrentMarketCap() {
-		return currentMarketCap;
-	}
-
-	public void setCurrentMarketCap(double currentMarketCap) {
-		this.currentMarketCap = currentMarketCap;
 	}
 
 	public double getOriginalInvestment() {
@@ -200,14 +141,6 @@ public class StockPortfolio {
 		this.purchaseDate = purchaseDate;
 	}
 
-	public String getDividendFrequency() {
-		return dividendFrequency;
-	}
-
-	public void setDividendFrequency(String dividendFrequency) {
-		this.dividendFrequency = dividendFrequency;
-	}
-
 	public String getComments() {
 		return comments;
 	}
@@ -224,38 +157,11 @@ public class StockPortfolio {
 		this.totalDividendAmount = totalDividendAmount;
 	}
 
-	public double getPlCurrent() {
-		return plCurrent;
-	}
-
-	public void setPlCurrent(double plCurrent) {
-		this.plCurrent = plCurrent;
-	}
-
-	public double getPlWithDividend() {
-		return plWithDividend;
-	}
-
-	public void setPlWithDividend(double plWithDividend) {
-		this.plWithDividend = plWithDividend;
-	}
-
-	public double getCurrentYield() {
-		return currentYield;
-	}
-
-	public void setCurrentYield(double currentYield) {
-		this.currentYield = currentYield;
-	}
-
 	@Override
 	public String toString() {
-		return "StockPortfolio [id=" + id + ", accountId=" + accountId + ", stockSymbol=" + stockSymbol + ", stockName="
-				+ stockName + ", productType=" + productType + ", stockQuantity=" + stockQuantity
-				+ ", currentStockPrice=" + currentStockPrice + ", averageStockPrice=" + averageStockPrice
-				+ ", currentMarketCap=" + currentMarketCap + ", originalInvestment=" + originalInvestment + ", drip="
-				+ drip + ", purchaseDate=" + purchaseDate + ", dividendFrequency=" + dividendFrequency + ", comments="
-				+ comments + ", totalDividendAmount=" + totalDividendAmount + ", plCurrent=" + plCurrent
-				+ ", plWithDividend=" + plWithDividend + ", currentYield=" + currentYield + "]";
-	}
+		return "StockPortfolio [id=" + id + ", account=" + account + ", stock=" + stock + ", stockQuantity="
+				+ stockQuantity + ", averageStockPrice=" + averageStockPrice + ", originalInvestment="
+				+ originalInvestment + ", drip=" + drip + ", purchaseDate=" + purchaseDate + ", comments=" + comments
+				+ ", totalDividendAmount=" + totalDividendAmount + "]";
+	}	
 }

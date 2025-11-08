@@ -1,12 +1,23 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
 <head> 
-    <title>All Accounts history</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/basic.css">
+    <title>All Accounts</title> 
+    <link th:href="@{/styles/navigationMenu.css}" rel="stylesheet" />
+    <link th:href="@{/styles/tableDisplay.css}" rel="stylesheet" />
+    <link th:href="@{/styles/verticalBar.css}" rel="stylesheet" />
 </head>
 <body>
-    <h2> All Accounts</h2>
+        
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/stockportfolios">Portfolios</a>
+      <a href="/dividendpayouts">Dividends</a>
+      <a href="/stocktradeorders">Trades</a>
+      <a class="active" href="/accounts">Accounts</a>
+      <a href="/about">About</a>
+    </div>
+
+    <h1> All Accounts</h1>
     
     <table border=1 class="sortable">
           <tr>
@@ -14,6 +25,7 @@
           <th>Name</th>
           <th>Owner</th> 
           <th>Account Type</th>
+          <th>Broker</th>
           <th>Opened Date</th>
       </tr>
           <tr th:each="account : ${allAccounts}"> 
@@ -21,6 +33,7 @@
             <td th:text="${account.accountName}">1</td>
             <td th:text="${account.accountOwner}">1</td>
             <td th:text="${account.accountType}">1</td>
+            <td th:text="${account.broker}">1</td>
             <td th:text="${account.openedDate}">1</td>
           </tr>
     </table>

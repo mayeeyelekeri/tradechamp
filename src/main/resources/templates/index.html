@@ -1,38 +1,33 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>TradeChamp application</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/basic.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/styles/navigationMenu.css}" rel="stylesheet" />
+    <link th:href="@{/styles/tableDisplay.css}" rel="stylesheet" />
+    <link th:href="@{/styles/verticalBar.css}" rel="stylesheet" />
 </head>
-<bb>
-    <h2> TradeChamp application <i>
-        <font color="blue"> 
-            <th:block th:text="${appName}"></th:block>  
-        </font> </i></h2>
-    
-    <p>
-       <b> <a href="/dividendannouncements" name="All Dividend Announcements"> All Dividend Announcements</a> <br><br> </b> 
-    </p>
+<body>
 
-    <p>
-       <b> <a href="/stockportfolios" name="All Stock Portfolios"> All Stock Portfolios</a> <br><br> </p> </b>
-    </p>
-     
-    <p>
-       <b> <a href="/accounts" name="All Accounts"> All Accounts</a> <br><br> </p> </b>
-    </p>
-        
-    <p>
-       <b> <a href="/stocktradeorders" name="All Orders"> All Orders</a> <br><br> </p> </b>
-    </p>
-      
-    <p>
-       <b> <a href="/dividendpayouts" name="All Dividend Payouts"> All Dividend Payouts</a> <br><br> </b> 
-    </p>     
-    
-    <h3> There is a message for you here ....   
-        <a href="/greeting"> Click Me </a>
-    </h3>
+    <div class="topnav">
+      <a  class="active" href="/">Home</a>
+      <a href="/stockportfolios">Portfolios</a>
+      <a href="/dividendpayouts">Dividends</a>
+      <a href="/stocktradeorders">Trades</a>
+      <a href="/accounts">Accounts</a>
+      <a href="/about">About</a>
+    </div>
+
+<div style="padding-left:60px">
+  <h2></h2>
+  
+</div>
+
+<ul style="padding-left:60px">
+  <li><a href="#home">Overview</a></li>
+  <li><a href="#news">Dividends</a></li>
+  <li><a href="#contact">Trades</a></li>
+  <li><a href="#about">Planning</a></li>
+</ul>
+
 </body>
 </html>

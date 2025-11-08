@@ -1,11 +1,9 @@
-package com.mine.tradechamp.model;
+package com.mine.tradechamp.test.model;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.mine.tradechamp.dto.mapper.DividendPayoutMapper;
-import com.mine.tradechamp.model.DividendPayout;
-
+import com.mine.tradechamp.dto.AccountDto;
 import static org.testng.Assert.assertEquals;
 
 import java.time.LocalDate;
@@ -14,10 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterTest;
 
-public class AccountTest {
-	Account account; 
+public class AccountDtoTest {
+	AccountDto account; 
 	
-	private Logger logger = LoggerFactory.getLogger(Account.class);
+	private Logger logger = LoggerFactory.getLogger(AccountDtoTest.class);
 	
 	@Parameters({"id", "accountId", "accountName", "accountOwner", "broker", "accountType", "openedDate"})
 	@Test(priority = 0)
@@ -115,12 +113,11 @@ public class AccountTest {
 	@BeforeTest
 	public void beforeTest(Long id, Long accountId, String accountName, String accountOwner, String broker, String accountType, String openedDateStr) {
 		logger.info("inside AccountTest::beforeTest() ...... ");
-		account = new Account(id, accountId, accountName, accountOwner, broker, accountType, LocalDate.parse(openedDateStr));
+		account = new AccountDto(id, accountId, accountName, accountOwner, broker, accountType, LocalDate.parse(openedDateStr));
 	}
 	
 	@AfterTest
 	public void afterTest() {
 		logger.info("...... inside AccountTesting::afterTest()");
 	}
-	
 }

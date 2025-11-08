@@ -4,9 +4,13 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,11 +27,12 @@ import lombok.Setter;
 public class DividendAnnouncement {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) //this make the ID autoincrement
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //this make the ID auto-increment
 	Long id; 
 	
-	@Column 
-	String stockSymbol;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
+	Stock stock;
 	
 	@Column
 	double declaredAmount;
@@ -46,11 +51,11 @@ public class DividendAnnouncement {
 	
 	public DividendAnnouncement() {}
 
-	public DividendAnnouncement(Long id, String stockSymbol, double declaredAmount, LocalDate declaredDate,
+	public DividendAnnouncement(Long id, Stock stock, double declaredAmount, LocalDate declaredDate,
 			LocalDate exDividendDate, LocalDate payDate, String dividendFrequency) {
 		super();
 		this.id = id;
-		this.stockSymbol = stockSymbol;
+		this.stock = stock;
 		this.declaredAmount = declaredAmount;
 		this.declaredDate = declaredDate;
 		this.exDividendDate = exDividendDate;
@@ -63,11 +68,11 @@ public class DividendAnnouncement {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getStockSymbol() {
-		return stockSymbol;
+	public Stock getStock() {
+		return stock;
 	}
-	public void setStockSymbol(String stockSymbol) {
-		this.stockSymbol = stockSymbol;
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}
 	public double getDeclaredAmount() {
 		return declaredAmount;
@@ -101,7 +106,7 @@ public class DividendAnnouncement {
 	}
 	@Override
 	public String toString() {
-		return "DividendAnnouncement [id=" + id + ", stockSymbol=" + stockSymbol + ", declaredAmount="
+		return "DividendAnnouncement [id=" + id + ", stock=" + stock + ", declaredAmount="
 				+ declaredAmount + ", declaredDate=" + declaredDate + ", exDividendDate=" + exDividendDate
 				+ ", payDate=" + payDate + ", dividendFrequency=" + dividendFrequency + "]";
 	} 	

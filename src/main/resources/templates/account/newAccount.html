@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>New Account</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> New Account</h2>
+    
+    <form method="POST" action="/accounts">
+    <table border=1 class="sortable">
+        <tr>
+            <td>Account ID</td> 
+            <td><input type="text" name="accountId" size="80"  required/></td>
+        </tr>
+             
+        <tr>
+            <td>Account Name</td> 
+            <td><input type="text" name="accountName" size="80"  required/></td>
+        </tr>
+                   
+        <tr>
+            <td>Owner</td> 
+            <td><input type="text" name="accountOwner" size="80"  required/></td>
+        </tr>
+        
+        <tr>
+            <td>Account Type</td> 
+            <td>
+            <select id="accountType" name="accountType"  required>
+               <option value="Margin">Margin</option>
+               <option value="Traditional IRA">Traditional IRA</option>
+               <option value="Roth IRA">Roth IRA</option>
+            </select>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Broker</td> 
+            <td>
+            <select id="broker" name="broker" required>
+                <option value="Webull">Webull</option>
+                <option value="Robinhood">Robinhood</option>
+                <option value="Ally">Ally</option>
+            </select>
+            </td>
+        </tr>         
+        <tr>
+            <td>Opened Date</td> 
+            <td><input type="text" name="openedDate" size="80" required/></td>
+        </tr>
+ 
+        <tr/><tr/><tr/><tr/><tr/>
+        <tr>
+            <td colspan="3"><input name="All Accounts" value="submit" type="submit"></input></td> 
+        </tr>
+        
+    </table>
+            
+</body>
+</html>

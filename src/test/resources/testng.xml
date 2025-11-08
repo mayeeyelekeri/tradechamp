@@ -1,54 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-
-  <parameter name="id" value="1"/>
-  <parameter name="declaredDate" value="2025-10-11"/>
-  <parameter name="exDividendDate" value="2025-10-12"/>
-  <parameter name="accountId" value="1"/>
-  <parameter name="accountName" value="Something"/>
-  <parameter name="accountOwner" value="MM"/>
-  <parameter name="payoutDate" value="2025-11-13"/>
-  <parameter name="stockSymbol" value="VOO"/>
-  <parameter name="currentStockQuantity" value="200"/>
-  <parameter name="currentStockPrice" value="154.7"/>
-  <parameter name="currentYield" value="12"/>
-  <parameter name="payoutAmount" value="0.143"/>
-  <parameter name="payoutDate" value="2025-11-13"/>
-  <test name="modelTests_DividendPay">
-    <classes>
-      <class name="com.mine.tradechamp.model.DividendPayoutDtoTest"/>
-      <class name="com.mine.tradechamp.model.DividendPayoutTest"/>
-      <class name="com.mine.tradechamp.mapper.DividendPayoutMapperTest"/>
-    </classes>
-  </test> 
   
-  <parameter name="id" value="1"/>
-  <parameter name="declaredDate" value="2025-10-11"/>
-  <parameter name="exDividendDate" value="2025-10-12"/>
-  <parameter name="stockSymbol" value="VOO"/>
-  <parameter name="declaredAmount" value="0.143"/>
-  <parameter name="payDate" value="2025-11-13"/>
-  <parameter name="dividendFrequency" value="Weekly"/>
-  <test name="modelTests_DividendAnnouncement">
-    <classes>
-      <class name="com.mine.tradechamp.model.DividendAnnouncementTest"/>
-      <class name="com.mine.tradechamp.model.DividendAnnouncementDtoTest"/>
-      <class name="com.mine.tradechamp.mapper.DividendAnnouncementMapperTest"/>
-    </classes>
-  </test> 
-  
-
   <parameter name="id" value="1"/>
   <parameter name="accountName" value="401K"/>
   <parameter name="accountOwner" value="MM"/>
   <parameter name="broker" value="Webull"/>
   <parameter name="accountType" value="IRA"/>
   <parameter name="openedDate" value="2025-10-13"/>
+  <test name="mockTests">
+    <classes>
+      <class name="com.mine.tradechamp.test.service.AccountServiceTest"/>
+    </classes>
+  </test> 
+  
+  <parameter name="stockId" value="2"/>
+  <test name="controllerTests">
+    <classes>
+      <class name="com.mine.tradechamp.test.controller.StockControllerTest"/>
+    </classes>
+  </test>   
+
+  <parameter name="id" value="1"/>
+  <parameter name="accountId" value="1"/>
+  <parameter name="accountName" value="401K"/>
+  <parameter name="accountOwner" value="MM"/>
+  <parameter name="broker" value="Webull"/>
+  <parameter name="accountType" value="IRA"/>
+  <parameter name="openedDate" value="2025-10-13"/>
+  
+  <parameter name="stockId" value="2"/>
+  <parameter name="stockPrice" value="8"/>
+  <parameter name="stockSymbol" value="TSYY"/>
+  <parameter name="currentStockPrice" value="8"/>
+  <parameter name="stockName" value="Tesla Dividend ETF"/>
+  <parameter name="stockDescription" value=""/>
+  <parameter name="stockType" value="DividendETF"/>
+  <parameter name="industry" value="Technology"/>
+  <parameter name="dividendYield" value="99"/>
+  <parameter name="dividendFrequency" value="Weekly"/>
+  <parameter name="nextDividendDateStr" value="2025-10-29"/>
+  <parameter name="modifiedDateStr" value="2025-10-29"/>
+  <parameter name="comments" value="Nothing"/>  
   <test name="modelTests_Account">
     <classes>
-      <class name="com.mine.tradechamp.model.AccountTest"/>
-      <class name="com.mine.tradechamp.model.AccountDtoTest"/>
-      <class name="com.mine.tradechamp.mapper.AccountMapperTest"/>
+      <class name="com.mine.tradechamp.test.model.AccountTest"/>
+      <class name="com.mine.tradechamp.test.model.StockTest"/>
     </classes>
   </test>
   

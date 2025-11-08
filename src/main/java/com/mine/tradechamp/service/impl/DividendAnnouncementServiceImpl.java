@@ -7,18 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mine.tradechamp.dto.DividendAnnouncementDto;
-import com.mine.tradechamp.dto.DividendPayoutDto;
-import com.mine.tradechamp.dto.mapper.DividendAnnouncementMapper;
-import com.mine.tradechamp.dto.mapper.DividendPayoutMapper;
 import com.mine.tradechamp.exception.ResourceNotFoundException;
 import com.mine.tradechamp.model.DividendAnnouncement;
-import com.mine.tradechamp.model.DividendPayout;
+import com.mine.tradechamp.model.Stock;
 import com.mine.tradechamp.repo.DividendAnnouncementRepository;
-import com.mine.tradechamp.repo.DividendPayoutRepository;
 import com.mine.tradechamp.service.DividendAnnouncementService;
-import com.mine.tradechamp.service.DividendPayoutService;
-
-import lombok.AllArgsConstructor;
+import com.mine.tradechamp.service.SharedService;
 
 @Service
 //@AllArgsConstructor 
@@ -27,16 +21,19 @@ public class DividendAnnouncementServiceImpl implements DividendAnnouncementServ
 	@Autowired
 	private DividendAnnouncementRepository repo; 
 	
+	@Autowired 
+	private SharedService sharedService; 
+	
 	@Override
 	public DividendAnnouncementDto createDividendAnnouncement(DividendAnnouncementDto dto) { 
 		
 		System.out.println("... inside DividendAnnouncementServiceImpl::createDividendAnnouncement"); 
 		System.out.println(dto); 
 		
-		DividendAnnouncement dividend = DividendAnnouncementMapper.mapToDividendAnnouncement(dto); 
+		DividendAnnouncement dividend = mapToDividendAnnouncement(dto); 
 		DividendAnnouncement savedDividendAnnouncement = repo.save(dividend); 
 		
-		return DividendAnnouncementMapper.mapToDividendAnnouncementDto(savedDividendAnnouncement); 
+		return mapToDividendAnnouncementDto(savedDividendAnnouncement); 
 	}
 
 	@Override
@@ -49,7 +46,7 @@ public class DividendAnnouncementServiceImpl implements DividendAnnouncementServ
 		
 		System.out.println(dividendAnnouncement); 
 		
-		return DividendAnnouncementMapper.mapToDividendAnnouncementDto(dividendAnnouncement);
+		return mapToDividendAnnouncementDto(dividendAnnouncement);
 	}
 
 	@Override
@@ -58,26 +55,26 @@ public class DividendAnnouncementServiceImpl implements DividendAnnouncementServ
 		List<DividendAnnouncement> dividendAnnouncements = repo.findAll(); 
 		
 		// convert all DividendPay records list to DividendPay List using Lambda expression  
-		return dividendAnnouncements.stream().map((dividend) -> DividendAnnouncementMapper.mapToDividendAnnouncementDto(dividend))
+		return dividendAnnouncements.stream().map((dividend) -> mapToDividendAnnouncementDto(dividend))
 				.collect(Collectors.toList()); 
 	}
 
 	@Override
-	public DividendAnnouncementDto updateDividendAnnouncement(Long dividendAnnouncementId, DividendAnnouncementDto newDividendAnnouncement) {
+	public DividendAnnouncementDto updateDividendAnnouncement(Long id, DividendAnnouncementDto dto) {
 		
-		DividendAnnouncement dividendAnnouncement = repo.findById(dividendAnnouncementId)
-				.orElseThrow(() -> new ResourceNotFoundException("Dividend Pay doesn't exist with ID : " + dividendAnnouncementId));
+		DividendAnnouncement newDiv = repo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Dividend Pay doesn't exist with ID : " + id));
 		
-		dividendAnnouncement.setStockSymbol(newDividendAnnouncement.getStockSymbol());
-		dividendAnnouncement.setDeclaredAmount(newDividendAnnouncement.getDeclaredAmount());
-		dividendAnnouncement.setDeclaredDate(newDividendAnnouncement.getDeclaredDate());
-		dividendAnnouncement.setExDividendDate(newDividendAnnouncement.getExDividendDate()); 
-		dividendAnnouncement.setPayDate(newDividendAnnouncement.getPayDate());
-		dividendAnnouncement.setDividendFrequency(newDividendAnnouncement.getDividendFrequency());
+		newDiv.setStock(sharedService.getStockByStockSymbol(dto.getStockSymbol()));
+		newDiv.setDeclaredAmount(dto.getDeclaredAmount());
+		newDiv.setDeclaredDate(dto.getDeclaredDate());
+		newDiv.setExDividendDate(dto.getExDividendDate()); 
+		newDiv.setPayDate(dto.getPayDate());
+		newDiv.setDividendFrequency(dto.getDividendFrequency());
 		
-		DividendAnnouncement updatedDividendPay = repo.save(dividendAnnouncement); 
+		DividendAnnouncement updatedDividendPay = repo.save(newDiv); 
 		
-		return DividendAnnouncementMapper.mapToDividendAnnouncementDto(updatedDividendPay); 
+		return mapToDividendAnnouncementDto(updatedDividendPay); 
 	}
 
 	@Override
@@ -90,5 +87,36 @@ public class DividendAnnouncementServiceImpl implements DividendAnnouncementServ
 		 
 	}
 	
+	// convert from Database model to Dto 
+	public DividendAnnouncementDto mapToDividendAnnouncementDto(DividendAnnouncement model) {
+		
+		DividendAnnouncementDto dto = new DividendAnnouncementDto(
+				model.getId(), 
+				model.getStock().getStockSymbol(), 
+				model.getDeclaredAmount(), 
+				model.getDeclaredDate(), 
+				model.getExDividendDate(), 
+				model.getPayDate(),
+				model.getDividendFrequency()
+		); 
+		
+		return dto; 
+	}
 	
+	// convert from dto to Database record (DividendAnnouncement) 
+	public DividendAnnouncement mapToDividendAnnouncement(DividendAnnouncementDto dto) {
+		Stock stock = sharedService.getStockByStockSymbol(dto.getStockSymbol()); 
+				 
+		DividendAnnouncement ann =  new DividendAnnouncement(
+				dto.getId(), 
+				stock,
+				dto.getDeclaredAmount(), 
+				dto.getDeclaredDate(), 
+				dto.getExDividendDate(), 
+				dto.getPayDate(), 
+				dto.getDividendFrequency()
+		);
+		
+		return ann; 
+	}
 }

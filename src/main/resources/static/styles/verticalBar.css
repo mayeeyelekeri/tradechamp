@@ -1,0 +1,20 @@
+ul {
+  list-style-type: none;
+  margin: 20;
+  padding: 20;
+  width: 160px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: black;
+  padding: 20px 20px;
+  text-decoration: wavy;
+}
+
+/* Change the link and background color on hover */
+li a:hover {
+  background-color: #555555;
+  color: white;
+}

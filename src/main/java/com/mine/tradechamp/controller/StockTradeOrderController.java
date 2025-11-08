@@ -21,8 +21,11 @@ import com.mine.tradechamp.dto.StockPortfolioDto;
 import com.mine.tradechamp.dto.StockTradeOrderDto;
 import com.mine.tradechamp.model.StockPortfolio;
 import com.mine.tradechamp.service.DividendAnnouncementService;
+import com.mine.tradechamp.service.SharedService;
 import com.mine.tradechamp.service.StockPortfolioService;
 import com.mine.tradechamp.service.StockTradeOrderService;
+import com.mine.tradechamp.service.impl.StockTradeOrderServiceImpl;
+import com.mine.tradechamp.utils.MyUtils;
 
 import lombok.AllArgsConstructor;
 
@@ -37,6 +40,9 @@ public class StockTradeOrderController {
 	@Autowired
 	private StockPortfolioService portfolioService;
 	
+	@Autowired 
+	private SharedService sharedService; 
+	
 	private Logger logger = LoggerFactory.getLogger(StockTradeOrderController.class);
 	
 	@PostMapping 
@@ -46,11 +52,13 @@ public class StockTradeOrderController {
 		StockTradeOrderDto savedDto = service.createStockTradeOrder(dto); 
 		
 		// Create/update a portfolio entry
-		if (savedDto.getOrderType().equals("Buy")) { 
+		if (savedDto.getOrderType().equals("BUY") ) { 
 			addOrUpdatePortfolio(savedDto);
-		} else { 
+		} else if( savedDto.getOrderType().equals("SELL")){ 
 			deleteOrUpdatePortfolio(savedDto);
-		}		
+		} else { 
+			logger.info("..... Wrong order type : "+ savedDto.getOrderType());
+		}
 		
 		return new ResponseEntity<>(savedDto, HttpStatus.CREATED); 
 	}
@@ -95,21 +103,24 @@ public class StockTradeOrderController {
 		if (portfolioDto != null ) { 
 			logger.info("Portfolio already exists, update it");		
 			
-			double oldAvg = portfolioDto.getAverageStockPrice() * portfolioDto.getStockQuantity(); 
 			double oldQuantity = portfolioDto.getStockQuantity();  
 			double oldMarketCap = portfolioDto.getCurrentMarketCap(); 
 			double oldOriginalInvestment = portfolioDto.getOriginalInvestment(); 
 			
-			double newTradeAvg = tradeDto.getPrice();  
+			double newStockPrice = tradeDto.getPrice();  
 			double newTradeQuantity = tradeDto.getQuantity(); 
-			double newTradeMarketCap = newTradeAvg * newTradeQuantity;  
-			double newTradeOriginalInvestment = newTradeAvg * newTradeQuantity; 
+			double newTradeMarketCap = newStockPrice * newTradeQuantity;  
 			
+			double newStockQuantity = portfolioDto.getStockQuantity() + tradeDto.getQuantity(); 
+			double newOrigInvest = portfolioDto.getOriginalInvestment() + (tradeDto.getPrice() * tradeDto.getQuantity());
+			double newTotalMarketCap = newStockQuantity * tradeDto.getPrice();  
+			double newAvgStockPrice = newOrigInvest / newStockQuantity; 
+
 			
-			portfolioDto.setStockQuantity(oldQuantity + newTradeQuantity);
-			portfolioDto.setCurrentMarketCap(oldMarketCap + newTradeMarketCap);
-			portfolioDto.setOriginalInvestment(oldOriginalInvestment + newTradeOriginalInvestment);
-			portfolioDto.setAverageStockPrice( (oldMarketCap + newTradeMarketCap)/(oldQuantity + newTradeQuantity) );
+			portfolioDto.setStockQuantity(MyUtils.removeDecimalsFromDoubleValue(newStockQuantity));
+			portfolioDto.setCurrentMarketCap(MyUtils.removeDecimalsFromDoubleValue(newTotalMarketCap));
+			portfolioDto.setOriginalInvestment(MyUtils.removeDecimalsFromDoubleValue(newOrigInvest));
+			portfolioDto.setAverageStockPrice(MyUtils.removeDecimalsFromDoubleValue(newAvgStockPrice));
 			portfolioDto.setCurrentStockPrice(tradeDto.getPrice());
 			portfolioDto.setPurchaseDate(tradeDto.getExecutionDate());
 			
@@ -123,8 +134,8 @@ public class StockTradeOrderController {
 			portfolioDto.setStockSymbol(tradeDto.getStockSymbol());
 			portfolioDto.setAverageStockPrice(tradeDto.getPrice());
 			portfolioDto.setStockQuantity(tradeDto.getQuantity());
-			portfolioDto.setCurrentMarketCap(tradeDto.getQuantity() * tradeDto.getPrice());
-			portfolioDto.setOriginalInvestment(tradeDto.getQuantity() * tradeDto.getPrice());
+			portfolioDto.setCurrentMarketCap(MyUtils.removeDecimalsFromDoubleValue(tradeDto.getQuantity() * tradeDto.getPrice()));
+			portfolioDto.setOriginalInvestment(MyUtils.removeDecimalsFromDoubleValue(tradeDto.getQuantity() * tradeDto.getPrice()));
 			portfolioDto.setPurchaseDate(tradeDto.getExecutionDate());
 			
 			portfolioDto.setCurrentStockPrice(tradeDto.getPrice());
@@ -143,36 +154,38 @@ public class StockTradeOrderController {
 		// If portfolio exists, delete/update it 
 		if (portfolioDto != null ) { 
 			
-			logger.info("Portfolio already exists, update it");		
+			logger.info("Portfolio already exists, update it");	 	
 			
-			double oldAvg = portfolioDto.getAverageStockPrice() * portfolioDto.getStockQuantity(); 
+			double oldAvg = MyUtils.removeDecimalsFromDoubleValue(portfolioDto.getAverageStockPrice() * portfolioDto.getStockQuantity()); 
 			double oldQuantity = portfolioDto.getStockQuantity();  
 			double oldMarketCap = portfolioDto.getCurrentMarketCap(); 
 			double oldOriginalInvestment = portfolioDto.getOriginalInvestment(); 
 			
 			double newTradeAvg = tradeDto.getPrice();  
 			double newTradeQuantity = tradeDto.getQuantity(); 
-			double newTradeMarketCap = newTradeAvg * newTradeQuantity;  
-			double newTradeOriginalInvestment = newTradeAvg * newTradeQuantity; 
+			double newTradeMarketCap = MyUtils.removeDecimalsFromDoubleValue(newTradeAvg * newTradeQuantity);  
+			double newTradeOriginalInvestment = MyUtils.removeDecimalsFromDoubleValue(newTradeAvg * newTradeQuantity); 
 			
 			// update quantity 
-			portfolioDto.setStockQuantity(oldQuantity - newTradeQuantity);
-			portfolioDto.setCurrentMarketCap(oldMarketCap - newTradeMarketCap);
-			portfolioDto.setOriginalInvestment(oldOriginalInvestment - newTradeOriginalInvestment);
-			portfolioDto.setAverageStockPrice( (oldMarketCap - newTradeMarketCap)/(oldQuantity - newTradeQuantity) );
-			portfolioDto.setCurrentStockPrice(tradeDto.getPrice());
-			portfolioDto.setPurchaseDate(tradeDto.getExecutionDate());
-			
-			StockPortfolioDto newDto = portfolioService.updateStockPortfolio(portfolioDto.getId(), portfolioDto); 
-			logger.info("Portfolio updated : " + newDto);
-			
+			portfolioDto.setStockQuantity(MyUtils.removeDecimalsFromDoubleValue(oldQuantity - newTradeQuantity));
 			// if the quantity is 0, then get rid of the portfolio record itself 
-			if (newDto.getStockQuantity() == 0) { 
+			if (portfolioDto.getStockQuantity() == 0) { 
 				logger.info("...mmmmm... looks like a complete selloff for this stock, removing the portfolio for stock :" + 
-						newDto.getStockSymbol() + ", and accountId: "+ newDto.getAccountId()); 
+						portfolioDto.getStockSymbol() + ", and accountId: "+ portfolioDto.getAccountId()); 
 				
-				portfolioService.deleteStockPortfolio(newDto.getId()); 						
+				portfolioService.deleteStockPortfolio(portfolioDto.getId()); 						
+			} else { 
+				logger.info("updating the portfolio");
+				portfolioDto.setCurrentMarketCap(oldMarketCap - newTradeMarketCap);
+				portfolioDto.setOriginalInvestment(oldOriginalInvestment - newTradeOriginalInvestment);
+				portfolioDto.setAverageStockPrice(MyUtils.removeDecimalsFromDoubleValue(portfolioDto.getOriginalInvestment()/portfolioDto.getStockQuantity() ));
+				portfolioDto.setCurrentStockPrice(tradeDto.getPrice());
+				//portfolioDto.setPurchaseDate(tradeDto.getExecutionDate());
+				
+				StockPortfolioDto newDto = portfolioService.updateStockPortfolio(portfolioDto.getId(), portfolioDto); 
+				logger.info("Portfolio updated : " + newDto);
 			}
+			
 		} else { 
 			logger.info("Portfolio doesn't exist, nothing to do");
 		}	// end of else	

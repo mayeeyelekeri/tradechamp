@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mine.tradechamp.dto.DividendPayoutDto;
 import com.mine.tradechamp.dto.StockPortfolioDto;
-import com.mine.tradechamp.dto.StockTradeOrderDto;
 import com.mine.tradechamp.service.DividendPayoutService;
 import com.mine.tradechamp.service.StockPortfolioService;
+import com.mine.tradechamp.utils.MyUtils;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 @RestController 
 @RequestMapping("/api/dividendpayouts")
 public class DividendPayoutController {
@@ -39,8 +39,15 @@ public class DividendPayoutController {
 	
 	@PostMapping 
 	public ResponseEntity<DividendPayoutDto> createDividendPayout(@RequestBody DividendPayoutDto dto) {
-		
+				
 		logger.info("..... inside DividendPayoutController::createDividendPay()"); 
+		
+		// dont allow negative dividend payout amount  
+		if (dto.getPayoutAmount() <= 0) { 
+			logger.info("ERROR: negative payout not allowed"); 
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+		
 		DividendPayoutDto savedDividendPayDto = service.createDividendPayout(dto); 
 		
 		// update portfolio with additional dividend
@@ -62,10 +69,16 @@ public class DividendPayoutController {
 		return ResponseEntity.ok(dividendPayDtos); 
 	}
 	
-	// Get all DividendPays 
+	// Update DividendPay 
 	@PutMapping("{id}")
-	public ResponseEntity<DividendPayoutDto> updateDividendPays(@PathVariable("id") Long id, DividendPayoutDto newDividendPayoutDto) { 
-		DividendPayoutDto dividendPayDto = service.updateDividendPayout(id, newDividendPayoutDto);  
+	public ResponseEntity<DividendPayoutDto> updateDividendPays(@PathVariable("id") Long id, DividendPayoutDto dto) { 
+		// don't allow negative dividend payout amount  
+		if (dto.getPayoutAmount() <= 0) { 
+			logger.info("ERROR: negative payout not allowed"); 
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+				
+		DividendPayoutDto dividendPayDto = service.updateDividendPayout(id, dto);  
 		return ResponseEntity.ok(dividendPayDto); 
 	}
 	
@@ -76,10 +89,10 @@ public class DividendPayoutController {
 		return ResponseEntity.ok("DividendPay record deleted successfully"); 
 	}
 	
-	// Create/Update DividendPayout record 
+	// Create/Update Portfolio record for a particular stock 
 	void addOrUpdatePortfolio(DividendPayoutDto payoutDto) {
 		
-		// Find portfolio record, add dividend information 
+		// Find portfolio record, just "add" the new payout information 
 		StockPortfolioDto portfolioDto = portfolioService.findByAccountIdAndStockSymbol(payoutDto.getAccountId(), payoutDto.getStockSymbol()); 
 		if (portfolioDto == null) { 
 			logger.info("ODD:::: appears like the portfolio doesn't exist");
@@ -87,10 +100,25 @@ public class DividendPayoutController {
 		}
 		logger.info("portfolio record : " + portfolioDto);
 
+		// 1. update totalDividend 
 		double newTotalDividend = portfolioDto.getTotalDividendAmount() + payoutDto.getPayoutAmount() ; 
 			
+		// 2. update currentStockPrice of "Stock" record 
+		if (payoutDto.getCurrentStockPrice() >= 0) { 
+			portfolioDto.setCurrentStockPrice(payoutDto.getCurrentStockPrice());
+		} 
+		
+		// 3. update current yield of "Stock" record
+		if (payoutDto.getCurrentYield() >= 0) { 
+			portfolioDto.setCurrentYield(payoutDto.getCurrentYield());
+		}
+		// 4. update dividendFrequency of "Stock" record
+		if (payoutDto.getDividendFrequency() != "") { 
+			portfolioDto.setDividendFrequency(payoutDto.getDividendFrequency());
+		}		
+		
 		logger.info("new div total: " + newTotalDividend);
-		portfolioDto.setTotalDividendAmount(newTotalDividend); 
+		portfolioDto.setTotalDividendAmount(MyUtils.removeDecimalsFromDoubleValue(newTotalDividend)); 
 			
 		StockPortfolioDto newDto = portfolioService.updateStockPortfolio(portfolioDto.getId(), portfolioDto); 
 		logger.info("Portfolio updated : " + newDto);

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Account Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Account Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>Account ID</th> 
+             <td th:text="${accountDetails.accountId}">1</td> 
+          </tr>
+          
+          <tr> 
+             <th>Account Name</th>
+             <td th:text="${accountDetails.accountName}">1</td>
+          </tr>
+               
+          <tr> 
+             <th>Account Owner</th>
+             <td th:text="${accountDetails.accountOwner}">1</td>
+          </tr>
+
+          <tr> 
+              <th>Broker</th>
+              <td th:text="${accountDetails.broker}">1</td>
+          </tr>
+                    
+          <tr> 
+             <th>Account Type</th>
+             <td th:text="${accountDetails.accountType}">1</td>
+          </tr>
+          
+          <tr> 
+             <th>Opened Date</th>
+             <td th:text="${accountDetails.openedDate}">1</td>
+          </tr>  
+          
+    </table>
+    <br><br>
+    <a href="/accounts" name="All Accounts"> All Accounts</a> <br><br>
+        
+</body>
+</html>

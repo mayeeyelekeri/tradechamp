@@ -4,9 +4,12 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,11 +29,13 @@ public class StockTradeOrder {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //this make the ID autoincrement
 	Long id; 
 	
-	@Column 
-	Long accountId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ACCOUNT", referencedColumnName = "ID")
+	Account account;
 	
-	@Column 
-	String stockSymbol;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
+	Stock stock;
 	
 	@Column 
 	String orderType; // Buy/Sell
@@ -49,12 +54,12 @@ public class StockTradeOrder {
 	
 	public StockTradeOrder() {}
 
-	public StockTradeOrder(Long id, Long accountId, String stockSymbol, String orderType, double quantity, double price,
+	public StockTradeOrder(Long id, Account account, Stock stock, String orderType, double quantity, double price,
 			LocalDate executionDate, String comments) {
 		super();
 		this.id = id;
-		this.accountId = accountId;
-		this.stockSymbol = stockSymbol;
+		this.account = account;
+		this.stock = stock;
 		this.orderType = orderType;
 		this.quantity = quantity;
 		this.price = price;
@@ -70,20 +75,20 @@ public class StockTradeOrder {
 		this.id = id;
 	}
 
-	public Long getAccountId() {
-		return accountId;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setAccountId(Long accountId) {
-		this.accountId = accountId;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
-	public String getStockSymbol() {
-		return stockSymbol;
+	public Stock getStock() {
+		return stock;
 	}
 
-	public void setStockSymbol(String stockSymbol) {
-		this.stockSymbol = stockSymbol;
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}
 
 	public String getOrderType() {
@@ -128,8 +133,8 @@ public class StockTradeOrder {
 
 	@Override
 	public String toString() {
-		return "StockTradeOrder [id=" + id + ", accountId=" + accountId + ", stockSymbol=" + stockSymbol
-				+ ", orderType=" + orderType + ", quantity=" + quantity + ", price=" + price + ", executionDate="
-				+ executionDate + ", comments=" + comments + "]";
-	}	
+		return "StockTradeOrder [id=" + id + ", account=" + account + ", stock=" + stock + ", orderType=" + orderType
+				+ ", quantity=" + quantity + ", price=" + price + ", executionDate=" + executionDate + ", comments="
+				+ comments + "]";
+	}
 }

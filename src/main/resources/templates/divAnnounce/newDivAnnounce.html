@@ -6,46 +6,55 @@
     <link rel="stylesheet" href="css/basic.css">
 </head>
 <body>
-    <h2> New Dividend Announcement</h2>
     
+    <div style="padding-left:60px">
+        <h2> New Dividend Announcement</h2>
+    </div>
+        
+    <div style="padding-left:60px">
+        
     <form method="POST" action="/dividendannouncements">
-    <table border=1 class="sortable">
-        <tr>
-            <td>Stock Symbol</td> 
-            <td><input type="text" name="stockSymbol" size="80"/></td>
-        </tr>
-             
-        <tr>
-            <td>Declared Amount</td> 
-            <td><input type="text" name="declaredAmount" size="80"/></td>
-        </tr>
-                   
-        <tr>
-            <td>Declared Date</td> 
-            <td><input type="text" name="declaredDate" size="80"/></td>
-        </tr>
-        
-        <tr>
-            <td>Ex-Dividend Date</td> 
-            <td><input type="text" name="exDividendDate" size="80"/></td>
-        </tr>
-        
-        <tr>
-            <td>Pay Date</td> 
-            <td><input type="text" name="payDate" size="80"/></td>
-        </tr>
-        
-        <tr>
-            <td>Dividend Frequency</td> 
-            <td><input type="text" name="dividendFrequency" size="80"/></td>
-        </tr>
+            <div style="padding-left:60px">
+                    <input type="button" onclick="location.href='/dividendannouncements';" value="Add New Dividend" />
+            </div> 
+            <table border=1 class="sortable">
+                <tr>
+                    <td>Stock Symbol</td> 
+                    <td><input type="text" name="stockSymbol" size="80" style="text-transform:uppercase" /></td>
+                </tr>
+                     
+                <tr>
+                    <td>Declared Amount</td> 
+                    <td><input type="text" name="declaredAmount" size="80"/></td>
+                </tr>
+                           
+                <tr>
+                    <td>Declared Date</td> 
+                    <td><input type="text" name="declaredDate" size="80"/></td>
+                </tr>
                 
-        <tr/><tr/><tr/><tr/><tr/>
-        <tr>
-            <td colspan="3"><input name="Declare New Dividend" value="submit" type="submit"></input></td> 
-        </tr>
-        
-    </table>
+                <tr>
+                    <td>Ex-Dividend Date</td> 
+                    <td><input type="text" name="exDividendDate" size="80"/></td>
+                </tr>
+                
+                <tr>
+                    <td>Pay Date</td> 
+                    <td><input type="text" name="payDate" size="80"/></td>
+                </tr>
+                
+                <tr>
+                    <td>Dividend Frequency</td> 
+                    <td><input type="text" name="dividendFrequency" size="80"/></td>
+                </tr>
+                        
+                <tr/><tr/><tr/><tr/><tr/>
+                <tr>
+                    <td colspan="3"><input name="Declare New Dividend" value="submit" type="submit"></input></td> 
+                </tr>
+                
+            </table>
             
+    </form>
 </body>
 </html>

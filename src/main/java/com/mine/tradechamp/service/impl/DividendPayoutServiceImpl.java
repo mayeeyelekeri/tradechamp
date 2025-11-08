@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mine.tradechamp.dto.DividendPayoutDto;
-import com.mine.tradechamp.dto.mapper.DividendPayoutMapper;
 import com.mine.tradechamp.exception.ResourceNotFoundException;
+import com.mine.tradechamp.model.Account;
 import com.mine.tradechamp.model.DividendPayout;
+import com.mine.tradechamp.model.Stock;
+import com.mine.tradechamp.repo.AccountRepository;
 import com.mine.tradechamp.repo.DividendPayoutRepository;
+import com.mine.tradechamp.repo.StockRepository;
 import com.mine.tradechamp.service.DividendPayoutService;
-
-import lombok.AllArgsConstructor;
+import com.mine.tradechamp.service.SharedService;
 
 @Service
 //@AllArgsConstructor 
@@ -22,16 +24,25 @@ public class DividendPayoutServiceImpl implements DividendPayoutService {
 	@Autowired
 	private DividendPayoutRepository repo; 
 	
+	@Autowired
+	private StockRepository stockRepo;
+	
+	@Autowired
+	private AccountRepository accountRepo;
+	
+	@Autowired 
+	private SharedService sharedService; 
+	
 	@Override
 	public DividendPayoutDto createDividendPayout(DividendPayoutDto dto) { 
 		
 		System.out.println("... inside DividendPayServiceImpl::createDividendPay"); 
 		System.out.println(dto); 
 		
-		DividendPayout dividend = DividendPayoutMapper.mapToDividendPayout(dto); 
-		DividendPayout savedDividendPay = repo.save(dividend); 
+		DividendPayout payout = mapToDividendPayout(dto); 
+		DividendPayout savedDividendPay = repo.save(payout); 
 		
-		return DividendPayoutMapper.mapToDividendPayoutDto(savedDividendPay); 
+		return mapToDividendPayoutDto(savedDividendPay); 
 	}
 
 	@Override
@@ -44,7 +55,7 @@ public class DividendPayoutServiceImpl implements DividendPayoutService {
 		
 		System.out.println(dividendPay); 
 		
-		return DividendPayoutMapper.mapToDividendPayoutDto(dividendPay);
+		return mapToDividendPayoutDto(dividendPay);
 	}
 
 	@Override
@@ -53,27 +64,32 @@ public class DividendPayoutServiceImpl implements DividendPayoutService {
 		List<DividendPayout> dividendPays = repo.findAll(); 
 		
 		// convert all DividendPay records list to DividendPay List using Lambda expression  
-		return dividendPays.stream().map((dividend) -> DividendPayoutMapper.mapToDividendPayoutDto(dividend))
+		return dividendPays.stream().map((dividend) -> mapToDividendPayoutDto(dividend))
 				.collect(Collectors.toList()); 
 	}
 
 	@Override
-	public DividendPayoutDto updateDividendPayout(Long dividendPayId, DividendPayoutDto newDividendPay) {
+	public DividendPayoutDto updateDividendPayout(Long dividendPayId, DividendPayoutDto dto) {
 		
 		DividendPayout dividendPay = repo.findById(dividendPayId)
 				.orElseThrow(() -> new ResourceNotFoundException("Dividend Pay doesn't exist with ID : " + dividendPayId));
 		
-		dividendPay.setAccountId(newDividendPay.getAccountId());
-		dividendPay.setStockSymbol(newDividendPay.getStockSymbol());
-		dividendPay.setPayoutAmount(newDividendPay.getPayoutAmount());
-		dividendPay.setCurrentStockQuantity(newDividendPay.getCurrentStockQuantity());
-		dividendPay.setCurrentStockPrice(newDividendPay.getCurrentStockPrice());
-		dividendPay.setCurrentYield(newDividendPay.getCurrentYield()); 
-		dividendPay.setPayoutDate(newDividendPay.getPayoutDate());
+		Stock stock = stockRepo.findByStockSymbol(dto.getStockSymbol()); 
+		Account account = accountRepo.findById(dto.getAccountId())
+				.orElseThrow(() -> new ResourceNotFoundException("Account doesn't exist with ID : " + dto.getAccountId())); 
+			
+		
+		dividendPay.setAccount(account);
+		dividendPay.setStock(stock);
+		dividendPay.setPayoutAmount(dto.getPayoutAmount());
+		dividendPay.setCurrentStockQuantity(dto.getCurrentStockQuantity());
+		dividendPay.setCurrentStockPrice(dto.getCurrentStockPrice());
+		dividendPay.setCurrentYield(dto.getCurrentYield()); 
+		dividendPay.setPayoutDate(dto.getPayoutDate());
 		
 		DividendPayout updatedDividendPay = repo.save(dividendPay); 
 		
-		return DividendPayoutMapper.mapToDividendPayoutDto(updatedDividendPay); 
+		return mapToDividendPayoutDto(updatedDividendPay); 
 	}
 
 	@Override
@@ -84,6 +100,45 @@ public class DividendPayoutServiceImpl implements DividendPayoutService {
 		
 		repo.deleteById(dividendPayId);  
 		 
+	}
+	
+	// Convert from payout to dto with additional information 
+	public DividendPayoutDto mapToDividendPayoutDto(DividendPayout dividend) {
+		
+		DividendPayoutDto dto = new DividendPayoutDto(
+				dividend.getId(), 
+				dividend.getAccount().getAccountId(), 
+				dividend.getStock().getStockSymbol(),
+				dividend.getCurrentStockQuantity(), 
+				dividend.getCurrentStockPrice(), 
+				dividend.getCurrentYield(),
+				dividend.getPayoutAmount(), 
+				dividend.getPayoutDate(), 
+				dividend.getDividendFrequency()
+		); 
+		
+		return dto; 
+	}
+	
+	public DividendPayout mapToDividendPayout(DividendPayoutDto dto) {
+		Stock stock = sharedService.getStockByStockSymbol(dto.getStockSymbol()); 
+		Account account = sharedService.getAccountByAccountId(dto.getAccountId());
+			// .orElseThrow(() -> new ResourceNotFoundException("Account doesn't exist with ID : " + dto.getAccountId())); 
+		
+		
+		DividendPayout payout = new DividendPayout(
+				dto.getId(), 
+				account,  
+				stock,
+				dto.getCurrentStockQuantity(), 
+				dto.getCurrentStockPrice(), 
+				dto.getCurrentYield(), 
+				dto.getPayoutAmount(), 
+				dto.getPayoutDate(), 
+				dto.getDividendFrequency()
+		); 
+		
+		return payout; 
 	}
 	
 	
