@@ -2,7 +2,6 @@
 FROM public.ecr.aws/amazoncorretto/amazoncorretto:24-headful
 
 #### FROM openjdk:18-jdk-alpine
-MAINTAINER MM
 
 # Variables, which would be used here 
 ARG JAR="tradechamp-1.0.0.jar"
