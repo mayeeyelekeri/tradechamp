@@ -45,7 +45,7 @@ public class StockController {
 	@Autowired
 	private RestClient restClient;
 	
-	private static final Logger logger = LoggerFactory.getLogger(StockController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(StockController.class);
 	
 	@PostMapping 
 	public ResponseEntity<StockDto> createStock(@RequestBody StockDto dto) {
@@ -94,8 +94,8 @@ public class StockController {
 			
 			String stockUrl = realQuoteUrl + "&symbol="+ dto.getStockSymbol(); 
 			
-			logger.info("processing stock "+ dto.getStockSymbol()); 
-			logger.info(stockUrl); 
+			//logger.info("processing stock "+ dto.getStockSymbol()); 
+			//logger.info(stockUrl); 
 			//List<StockRealQuote> stockRealQuote =
 				// 	restTemplate.getForObject(stockUrl, StockRealQuote.class);
 			
@@ -108,16 +108,16 @@ public class StockController {
 	                .retrieve()
 	                .body(new ParameterizedTypeReference<List<StockRealQuote>>() {});
 			} catch (HttpClientErrorException e) { 
-				logger.info(e.getMessage());	
+				//logger.info(e.getMessage());	
 				continue; 
 			}
 			
-			logger.info(stockQuote.toString()); 
+			//logger.info(stockQuote.toString()); 
 			
 			// update the stock 
 			dto.setCurrentStockPrice(stockQuote.get(0).getPrice()); 
 			StockDto newDto = service.updateStock(dto.getId(), dto);
-			logger.info("new stock info after update: "+ newDto); 
+			//logger.info("new stock info after update: "+ newDto); 
 		}
 		
 		return ResponseEntity.ok(stockDtoList); 
