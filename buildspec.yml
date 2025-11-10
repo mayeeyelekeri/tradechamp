@@ -9,8 +9,6 @@ phases:
   install:
     commands: 
        - echo Pre-Build started on `date`
-       - export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto" # Adjust path as needed
-       - export PATH="$JAVA_HOME/bin:$PATH"
        - java -version # Verify the Java version
     
 
