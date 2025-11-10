@@ -41,7 +41,10 @@ public class StockController {
 	@Autowired
 	private StockService service; 
 	
-	RestClient restClient = RestClient.create();
+	// RestClient restClient = RestClient.create();
+	@Autowired
+	private RestClient restClient;
+	
 	
 	private Logger logger = LoggerFactory.getLogger(StockController.class);
 	
