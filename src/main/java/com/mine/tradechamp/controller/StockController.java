@@ -45,7 +45,7 @@ public class StockController {
 	@Autowired
 	private RestClient restClient;
 	
-	
+	@Autowired
 	private Logger logger = LoggerFactory.getLogger(StockController.class);
 	
 	@PostMapping 
