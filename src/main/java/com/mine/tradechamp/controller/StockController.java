@@ -45,8 +45,7 @@ public class StockController {
 	@Autowired
 	private RestClient restClient;
 	
-	@Autowired
-	private Logger logger = LoggerFactory.getLogger(StockController.class);
+	private static final Logger logger = LoggerFactory.getLogger(StockController.class);
 	
 	@PostMapping 
 	public ResponseEntity<StockDto> createStock(@RequestBody StockDto dto) {
