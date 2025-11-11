@@ -43,7 +43,7 @@ public class StockController {
 	
 	// RestClient restClient = RestClient.create();
 	//@Autowired
-	private RestClient restClient;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(StockController.class);
 	
@@ -101,7 +101,7 @@ public class StockController {
 			
 			List<StockRealQuote> stockQuote = new ArrayList<>(); 
 			
-			restClient = RestClient.builder()
+			RestClient restClient = RestClient.builder()
 	                .baseUrl("https://financialmodelingprep.com/stable/quote-short?apikey=sfGC7h1zUyt8eN45pldwxhEewQ9JpbhF")
 	                .build();
 			
