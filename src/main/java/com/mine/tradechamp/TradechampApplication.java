@@ -12,10 +12,10 @@ public class TradechampApplication {
 		SpringApplication.run(TradechampApplication.class, args);
 	}
 
-	@Bean
+	/* @Bean
     public RestClient restClient() {
         return RestClient.builder()
                 .baseUrl("https://financialmodelingprep.com/stable/quote-short?apikey=sfGC7h1zUyt8eN45pldwxhEewQ9JpbhF")
                 .build();
-    }
+    } */ 
 }
