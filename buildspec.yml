@@ -49,7 +49,10 @@ phases:
             
        - echo commitID is $commitId
        - docker build -t $image_repo:$commitId .
+       - docker tag  $image_repo:$commitId $image_repo:latest
        - docker push $image_repo:$commitId
+       - docker push $image_repo:latest
+       
        - docker images 
             
      artifacts:
