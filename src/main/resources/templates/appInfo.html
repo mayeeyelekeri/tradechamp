@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>App Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+    <h2> Account Details</h2>
+    
+    <table border=1 class="sortable">
+          <tr>
+             <th>SpringBoot Version</th> 
+             <td th:text="${springBootVersion}">1</td> 
+          </tr>
+          <tr>
+              <th>WelcomeMessage</th> 
+              <td th:text="${welcomeMessage}">1</td> 
+          </tr>
+
+          <tr>
+              <th>DatabaseUrl</th> 
+              <td th:text="${databaseUrl}">1</td> 
+          </tr>      
+    </table>
+    <br><br>
+        
+</body>
+</html>
