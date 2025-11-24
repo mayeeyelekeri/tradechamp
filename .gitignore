@@ -1,6 +1,6 @@
 HELP.md
 
-src/main/resources/application-aws.properties
+#src/main/resources/application-aws.properties
 
 target/
 .mvn/wrapper/maven-wrapper.jar
