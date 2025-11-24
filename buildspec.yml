@@ -25,6 +25,7 @@ phases:
   post_build:
      commands:
        - echo bucket name is $BUCKET_NAME
+       - pwd 
        - ls -lrt target 
        - cp target/tradechamp-1.0.0.jar codedeploy 
        - ls -lrt codedeploy
@@ -45,6 +46,7 @@ phases:
        - accountName=$accountID.$postfix
        - echo accountName = $accountName 
        - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $accountName 
+       - pwd
        - commitId=`git log --format="%H" -n 1`
             
        - echo commitID is $commitId
