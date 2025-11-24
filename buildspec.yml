@@ -48,7 +48,7 @@ phases:
        - commitId=`git log --format="%H" -n 1`
             
        - echo commitID is $commitId
-       - docker build -t $image_repo:$commitId .
+       - docker build -e "SPRING_PROFILES_ACTIVE=aws" -t $image_repo:$commitId .
        - docker tag  $image_repo:$commitId $image_repo:latest
        - docker push $image_repo:$commitId
        - docker push $image_repo:latest
