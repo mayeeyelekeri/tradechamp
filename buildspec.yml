@@ -47,7 +47,9 @@ phases:
        - echo accountName = $accountName 
        - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $accountName 
        - pwd
-       - commitId=`git log --format="%H" -n 1`
+         # - commitId=`git log --format="%H" -n 1`
+       # get current timestamp and create tag 
+       - commitId=`date +"%Y-%m-%d-%H-%M-%S-%3N"`
             
        - echo commitID is $commitId
        - docker build -t $image_repo:$commitId .
