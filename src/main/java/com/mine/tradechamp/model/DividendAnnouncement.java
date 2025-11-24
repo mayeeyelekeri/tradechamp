@@ -34,19 +34,19 @@ public class DividendAnnouncement {
 	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
 	Stock stock;
 	
-	@Column
+	@Column(name = "declared_amount")
 	double declaredAmount;
 	
-	@Column
+	@Column(name = "declared_date")
 	LocalDate declaredDate; 
 	
-	@Column
+	@Column(name = "ex_dividend_date")
 	LocalDate exDividendDate;
 	
-	@Column
+	@Column(name = "pay_date")
 	LocalDate payDate; 
 
-	@Column 
+	@Column(name = "dividend_frequency") 
 	String dividendFrequency; 
 	
 	public DividendAnnouncement() {}

@@ -27,37 +27,37 @@ public class Stock implements java.io.Serializable{
 	@Column(name = "id")
 	Long stockId; 
 	
-	@Column 
+	@Column(name = "stock_symbol") 
 	String stockSymbol;
 	
-	@Column
+	@Column(name = "current_stock_price")
 	double currentStockPrice; 
 	
-	@Column 
+	@Column(name = "stock_name") 
 	String stockName;
 	
-	@Column 
+	@Column(name = "stock_description") 
 	String stockDescription;
 	
-	@Column
+	@Column(name = "stock_type")
 	String stockType;
 	
-	@Column
+	@Column(name = "industry")
 	String industry; 
 	
-	@Column
+	@Column(name = "dividend_yield")
 	double dividendYield; 
 	
-	@Column
+	@Column(name = "dividend_frequency")
 	String dividendFrequency; 
 	
-	@Column 
+	@Column(name = "next_dividend_date") 
 	LocalDate nextDividendDate; 
 	
-	@Column
+	@Column(name = "comments")
 	String comments; 
 	
-	@Column
+	@Column(name = "modified_date")
 	LocalDate modifiedDate; 
 	
 	public Stock() {}

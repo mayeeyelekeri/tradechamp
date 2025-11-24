@@ -26,22 +26,22 @@ public class Account {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //this make the ID autoincrement
 	Long id; 
 	
-	@Column 
+	@Column(name = "account_id")
 	Long accountId;
 	
-	@Column 
+	@Column(name = "account_name") 
 	String accountName;
 	
-	@Column 
+	@Column(name = "account_owner") 
 	String accountOwner;
 	
-	@Column
+	@Column(name = "broker")
 	String broker;
 	
-	@Column
+	@Column(name = "account_type")
 	String accountType; 
 	
-	@Column
+	@Column(name = "opened_date")
 	LocalDate openedDate; 
 
 	public Account() {}

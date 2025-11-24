@@ -37,19 +37,19 @@ public class StockTradeOrder {
 	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
 	Stock stock;
 	
-	@Column 
+	@Column(name = "order_type") 
 	String orderType; // Buy/Sell
 		
-	@Column
+	@Column(name = "quantity")
 	double quantity;
 	
-	@Column
+	@Column(name = "price")
 	double price;
 		
-	@Column
+	@Column(name = "execution_date")
 	LocalDate executionDate; 
 	
-	@Column
+	@Column(name = "comments")
 	String comments;
 	
 	public StockTradeOrder() {}

@@ -38,22 +38,22 @@ public class DividendPayout {
 	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
 	Stock stock;
 	
-	@Column
+	@Column(name = "current_stock_quantity")
 	double currentStockQuantity;
 	
-	@Column
+	@Column(name = "current_stock_price")
 	double currentStockPrice;
 	
-	@Column
+	@Column(name = "current_yield")
 	double currentYield;
 	
-	@Column
+	@Column(name = "payout_amount")
 	double payoutAmount;
 	
-	@Column
+	@Column(name = "payout_date")
 	LocalDate payoutDate; 
 	
-	@Column 
+	@Column(name = "dividend_frequency") 
 	String dividendFrequency; 
 
 	public DividendPayout() {}

@@ -38,25 +38,25 @@ public class StockPortfolio {
 	@JoinColumn(name = "STOCK", referencedColumnName = "ID")
 	Stock stock;
 
-	@Column
+	@Column(name = "stock_quantity")
 	double stockQuantity;
 	
-	@Column
+	@Column(name = "average_stock_price")
 	double averageStockPrice;
 	
-	@Column
+	@Column(name = "original_investment")
 	double originalInvestment;
 	
-	@Column
+	@Column(name = "drip")
 	String drip; // yes/no/partial
 	
-	@Column
+	@Column(name = "purchase_date")
 	LocalDate purchaseDate; 
 		
-	@Column
+	@Column(name = "comments")
 	String comments;
 	
-	@Column
+	@Column(name = "total_dividend_amount")
 	double totalDividendAmount; 
 	
 	public StockPortfolio() {}
