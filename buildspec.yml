@@ -62,6 +62,7 @@ phases:
        # Create a new file "imagedefinitions.json" 
        - echo Writing image definitions file...
        - printf '[{"name":"tradechamp","imageUri":"%s"}]' $image_repo:latest> imagedefinitions.json 
+       - cat imagedefinitions.json
 
             
      artifacts:
