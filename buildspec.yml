@@ -58,12 +58,14 @@ phases:
        - docker push $image_repo:latest
        
        - docker images 
+
+       # Create a new file "imagedefinitions.json" 
+       - echo Writing image definitions file...
+       - printf '[{"name":"tradechamp","imageUri":"%s"}]' $image_repo:latest> imagedefinitions.json 
+
             
      artifacts:
-        files:
-          - '**/*'
-        base-directory: codedeploy 
-        discard-paths: false  
+        files: imagedefinitions.json
         
      reports: 
         SureFireReports:
