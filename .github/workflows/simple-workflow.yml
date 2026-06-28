@@ -39,3 +39,10 @@ jobs:
           echo Going to run maven 
           mvn clean package 
           ls -lrt target 
+
+      - name: use secrets 
+        env:
+          MY_SECRET: ${{ secrets.SIMPLE_SECRET }}
+        run: |
+          echo "displaying secret. $MY_SECRET"
+           
