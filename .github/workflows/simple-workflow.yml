@@ -43,6 +43,8 @@ jobs:
       - name: use secrets 
         env:
           MY_SECRET: ${{ secrets.SIMPLE_SECRET }}
+          MY_NAME: ${{ env.MY_NAME }} 
         run: |
           echo "displaying secret. $MY_SECRET"
+          echo "displaying env : $MY_NAME" 
            
