@@ -38,7 +38,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Going to run maven 
-          mvn clean package 
+          docker run --user "$(id -u)":"$(id -g)" --rm -v "$(pwd)":/usr/src/mymaven -v "$(echo $HOME)"/.m2:/tmp/.m2 -w /usr/src/mymaven mayee007/mymaven:3.8.3-openjdk-17
           ls -lrt target 
 
       - name: use secrets 
