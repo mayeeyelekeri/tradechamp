@@ -59,4 +59,18 @@ jobs:
           name: Package
           path: staging
 
+      # Step 3: Connect and log into Docker Hub using secrets
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      # Step 4: Automatically build and push the container image
+      - name: Build and Push Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/tradechamp-github:latest
            
